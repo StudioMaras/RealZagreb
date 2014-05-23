@@ -783,7 +783,9 @@ html[xmlns] .slides {
   margin-left: 235px; }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_smjestaj\.scss}line{font-family:\0000384}}
   .view-smjestaj .views-field-nothing a {
-    font-size: 1em; }
+    font-size: 1em;
+    text-transform: uppercase;
+    text-decoration: none; }
 
 /* pomoći će ti HTML Color Picker: http://www.w3schools.com/tags/ref_colorpicker.asp */
 @media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_vijesti\.scss}line{font-family:\000037}}
