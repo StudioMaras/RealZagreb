@@ -1,0 +1,10 @@
+.l-region--sidebar-first {
+        @include grid-span(2,1);
+        background: $plavetnilo;
+        color: white;
+        padding: 1em;
+}
+
+.l-region--sidebar-first a {
+        color: white;
+}

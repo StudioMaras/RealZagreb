@@ -1,0 +1,90 @@
+@import "compass";
+@import "breakpoint";
+@import "singularitygs";
+
+@import "../../variables/**/*";
+
+.l-main h1 {display:none};
+
+.l-content {
+    margin-top: 65px;
+    clear: both;
+    @include grid-span(12,1);
+}
+
+.l-region--footer {
+    clear: both;
+}
+
+.flex-control-paging {
+    display: none;
+}
+
+img {
+    height: auto;
+}
+
+.node--slajder-slika {
+    position: relative;
+}
+
+.node--slajder-slika .node__title {
+    position: absolute;
+    float: left;
+    padding-left: 80px;
+    margin-top: 25px;
+    padding-top: 13px;
+    padding-bottom: 8px;
+    width: 100%;
+    line-height: 130%;
+    background-color: rgba(0,0,0,0.5);
+    a {
+        font-family: 'Open Sans';
+        font-weight: 300;
+        color: white;
+        font-size: 1.5em;
+        text-decoration: none;
+    };
+}
+
+.node--slajder-slika .field--name-field-read-more {
+    position: relative;
+    float: right;
+    z-index: 900;
+    .field__label {display: none};
+    .field__item {
+        font-family: 'Open Sans';
+        font-weight: 300;
+        margin-top: -280px;
+        width: 170px;
+        line-height: 150%;
+        padding: 0.4em 1.3em 0.4em 1.3em;
+        a {
+            color: white;
+            text-decoration: none;
+        };
+    };
+}
+
+
+/*
+.l-branding {
+    @include grid-span(12,1);
+}
+
+.l-content {
+    clear: both;
+}
+
+.l-content h1 {
+    display: none;
+}
+
+.l-region--navigation {
+    @include grid-span(8,3);
+}
+
+.l-region--footer {
+    clear: both;
+}
+*/

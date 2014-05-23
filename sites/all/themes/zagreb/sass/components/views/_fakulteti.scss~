@@ -1,0 +1,28 @@
+@import "compass";
+@import "breakpoint";
+@import "singularitygs";
+
+@import "../../variables/**/*";
+
+.view-popis-fakulteti {
+    clear: both;
+}
+
+.view-popis-fakulteti .views-row {
+    font-family: 'Open Sans';
+    font-weight: 300;
+    font-size: 1em;
+    text-transform: uppercase;
+    margin: 0.5em;
+    a {
+        color: white;
+        text-decoration: none;
+        padding: 0.4em 0.7em 0.4em 0.7em;
+        background: $ducan;
+    };
+    a:hover {
+        background: $ducan_hover;
+    }
+    float: left;
+}
+

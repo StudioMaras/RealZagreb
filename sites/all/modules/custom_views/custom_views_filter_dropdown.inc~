@@ -1,0 +1,39 @@
+<?php
+ 
+class custom_views_filter_dropdown extends views_handler_filter_many_to_one
+{
+    /**
+     * Shortcut to display the exposed options form.
+     */
+    function value_form(&$form, &$form_state) {
+        $efq = new EntityFieldQuery();
+          $efq->entityCondition('entity_type', 'node')
+              ->entityCondition('bundle', 'snippet')
+              ->fieldCondition('field_snippet_type', 'tid', $this->view->filter['tid']->options['value'], '=');
+ 
+          $results = $efq->execute();
+          $entities = entity_load('node', array_keys($results['node']));
+ 
+          if (!empty($entities)) {
+            foreach ($entities as $entity) {
+              $options[$entity->nid] = $entity->title;
+            }
+          }
+ 
+          $form['value']['#type'] = 'select';
+          $form['value']['#multiple'] = TRUE;
+          $form['value']['#options'] = !empty($options) ? $options : array();
+          $form['value']['#size'] = 5;
+    }
+ 
+ 
+    /**
+     * Change the query.
+     */
+    function query() {
+        $this->ensure_my_table();
+        $args = array_values($this->value);
+        $this->query->add_where_expression($this->options['group'], "$this->table.$this->real_field IN (:placeholder) ", array(':placeholder' => $args),
+      $args);
+   }
+}

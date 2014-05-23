@@ -1,0 +1,120 @@
+@import "compass";
+@import "breakpoint";
+@import "singularitygs";
+
+@import "../../variables/**/*";
+
+.view-proba-ducani {
+    margin: auto;
+    margin-top: 80px;
+    width: auto;
+}
+
+.view-proba-ducani .views-row {
+/*    width: $veliki_ducan_width;
+    height: $veliki_ducan_height;*/
+    width: 100%;
+    height: $mali_ducan_height;
+    padding: 1.2em;
+    background: $ducan;
+
+    border: 1.5em solid rgb(0, 0, 0);
+    border: 1.5em solid rgba(0, 0, 0, 0);
+    -webkit-background-clip: padding-box; /* for Safari */
+    background-clip: padding-box; /* for IE9+, Firefox 4+, Opera, Chrome */
+    
+    color: white;
+    float: left;
+    position: relative;
+    font-family: 'Open Sans';
+    font-weight: 300;
+    line-height: 160%;
+    word-wrap:break-word;
+    @include breakpoint($tab1) {
+        width: 50%;
+        height: $mali_ducan_height;
+    }
+    @include breakpoint($tab2) {
+        width: 33%;
+        height: $srednji_ducan_height;
+    }
+    @include breakpoint($desk) {
+        width: 25%;
+        height: $veliki_ducan_height;
+    }
+
+}
+
+.view-proba-ducani .views-field-title {
+    font-size: 1.7em;
+    text-transform: uppercase;
+    a {text-decoration: none;};
+}
+
+.view-proba-ducani .views-field-body {
+    font-size: 1em;
+}
+
+.view-proba-ducani .views-field-field-web a {
+    position: relative;
+    z-index: 3;
+}
+
+.view-proba-ducani .views-row:hover {
+    background: $ducan_hover;
+    border: 1.5em solid rgb(0, 0, 0);
+    border: 1.5em solid rgba(0, 0, 0, 0);
+    -webkit-background-clip: padding-box; /* for Safari */
+    background-clip: padding-box; /* for IE9+, Firefox 4+, Opera, Chrome */
+}
+
+.view-proba-ducani a:hover {
+    color: $zuto;
+}
+
+.view-proba-ducani .views-field-title a {
+    color: white;
+    position: relative;
+    z-index: 2;
+}
+
+.view-proba-ducani .views-field-field-tagovi a {
+    text-transform: uppercase;
+    text-decoration: none;
+    text-align: center;
+    font-size: 0.8em;
+    color: $ducan;
+    padding: 0.3em;
+    margin-top: 0.5em;
+    margin-right: 0.3em;
+    background: white;
+    border-radius: 5px;
+    float: left;
+    z-index: 2;
+}
+
+.view-proba-ducani .views-field-nothing {
+    span {
+        position:absolute; 
+        width:100%;
+        height:100%;
+        top:0;
+        left: 0;
+        z-index: 1;
+    };
+    .field-content {border-radius: 5px};
+}
+
+.views-proba-ducani .views-field-nothing-1 {
+    span {
+        position: absolute;
+        width: 100%;
+        height: 40%;
+        background-color: $sivo;
+        z-index: 3;
+    };
+}
+.views-widget-filter-field_tagovi_tid_1 {
+    label[for="edit-field-tagovi-tid-1"] {display: none};
+    .option {display: inline};
+}

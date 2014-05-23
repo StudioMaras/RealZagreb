@@ -1,0 +1,47 @@
+@charset "UTF-8";
+/* pomoći će ti HTML Color Picker: http://www.w3schools.com/tags/ref_colorpicker.asp */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/layouts\/ducan\/ducan\.layout\.scss}line{font-family:\000037}}
+.l-branding {
+  width: 100%;
+  float: right;
+  margin-left: 0;
+  margin-right: 0;
+  clear: none; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/layouts\/ducan\/ducan\.layout\.scss}line{font-family:\0000311}}
+.node--temp-ducani {
+  width: 66.26506%;
+  float: left;
+  margin-right: -100%;
+  margin-left: 8.43373%;
+  clear: none;
+  background: #ff7575;
+  display: inline-block;
+  padding: 20px; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/layouts\/ducan\/ducan\.layout\.scss}line{font-family:\0000318}}
+.l-content h1 {
+  display: none; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/layouts\/ducan\/ducan\.layout\.scss}line{font-family:\0000322}}
+.l-region--branding {
+  width: 66.26506%;
+  float: left;
+  margin-right: -100%;
+  margin-left: 16.86747%;
+  clear: none; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/layouts\/ducan\/ducan\.layout\.scss}line{font-family:\0000326}}
+.l-region--sidebar-second {
+  width: 57.83133%;
+  float: left;
+  margin-right: -100%;
+  margin-left: 25.3012%;
+  clear: none; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/layouts\/ducan\/ducan\.layout\.scss}line{font-family:\0000330}}
+.view-karte-clanka .leaflet-container {
+  width: 250px;
+  padding: 20px;
+  display: inline-block;
+  max-width: 100%; }

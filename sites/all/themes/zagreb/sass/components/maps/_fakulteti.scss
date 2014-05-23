@@ -1,0 +1,67 @@
+@import "compass";
+@import "breakpoint";
+@import "singularitygs";
+
+@import "../../variables/**/*";
+
+.view-karta-proba .views-field-field-dogadaj {
+    color: $ducan;
+    font-size: 1.7em;
+    text-transform: uppercase;
+    a {text-decoration: none;};
+}
+
+.views-field-field-sajtovi-body {
+    font-size: 1em;
+}
+
+.bef-checkboxes {
+    font-family: 'Open Sans';
+    font-weight: 600;
+    display: inline;
+}
+
+.views-widget-filter-nid2 {
+    label {
+        display: none;
+    };       
+    option {
+        font-family: 'Open Sans';
+        font-weight: 300;
+        color: $ducan;
+    };
+}
+
+.views-exposed-form-karta-fakulteti-page-1 .views-submit-button {
+    input {
+        font-family: 'Open Sans';
+        font-weight: 600;
+        text-transform: uppercase;
+        color: $ducan;
+        padding: 0.5em;
+        margin-top: 1em;
+    };
+}
+
+.views-widget-filter-tid_1 {
+    label {
+        display: none;
+    };       
+    option {
+        font-family: 'Open Sans';
+        font-weight: 300;
+        color: $ducan;
+    };
+}
+
+.views-exposed-form-karta-fakulteti-block-1 .views-submit-button {
+    input {
+        font-family: 'Open Sans';
+        font-weight: 600;
+        text-transform: uppercase;
+        color: $ducan;
+        padding: 0.5em;
+        margin-top: -1em;
+    };
+}
+

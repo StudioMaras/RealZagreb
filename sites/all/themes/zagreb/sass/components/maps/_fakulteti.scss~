@@ -1,0 +1,110 @@
+@import "compass";
+@import "breakpoint";
+@import "singularitygs";
+
+@import "../../variables/**/*";
+
+.view-display-id-attachment_1 .views-row {
+/*    width: $veliki_ducan_width;
+    height: $veliki_ducan_height;*/
+    width: 100%;
+    height: $mali_ducan_height;
+    padding: 1em;
+
+    border: 1em solid rgb(0, 0, 0);
+    border: 1em solid rgba(0, 0, 0, 0);
+    -webkit-background-clip: padding-box; /* for Safari */
+    background-clip: padding-box; /* for IE9+, Firefox 4+, Opera, Chrome */
+    
+    color: black;
+    float: left;
+    position: relative;
+    font-family: 'Open Sans';
+    font-weight: 300;
+    line-height: 180%;
+    word-wrap:break-word;
+    @include breakpoint($tab1) {
+        width: 50%;
+        height: $mali_ducan_height;
+    }
+    @include breakpoint($tab2) {
+        width: 33%;
+        height: $srednji_ducan_height;
+    }
+    @include breakpoint($desk) {
+        width: 25%;
+        height: $veliki_ducan_height;
+    }
+
+}
+
+.view-karta-proba .views-field-field-dogadaj {
+    color: $ducan;
+    font-size: 1.7em;
+    text-transform: uppercase;
+    a {text-decoration: none;};
+}
+
+.views-field-field-sajtovi-body {
+    font-size: 1em;
+}
+
+.view-display-id-attachment_1 a {
+    position: relative;
+    z-index: 3;
+}
+
+.view-display-id-attachment_1 a:hover {
+    color: $plavetnilo;
+}
+
+.bef-checkboxes {
+    font-family: 'Open Sans';
+    font-weight: 600;
+    display: inline;
+}
+
+.views-widget-filter-nid2 {
+    label {
+        display: none;
+    };       
+    option {
+        font-family: 'Open Sans';
+        font-weight: 300;
+        color: $ducan;
+    };
+}
+
+.views-exposed-form-karta-fakulteti-page-1 .views-submit-button {
+    input {
+        font-family: 'Open Sans';
+        font-weight: 600;
+        text-transform: uppercase;
+        color: $ducan;
+        padding: 0.5em;
+        margin-top: 1em;
+    };
+}
+
+.views-widget-filter-tid_1 {
+    label {
+        display: none;
+    };       
+    option {
+        font-family: 'Open Sans';
+        font-weight: 300;
+        color: $ducan;
+    };
+}
+
+.views-exposed-form-karta-fakulteti-block-1 .views-submit-button {
+    input {
+        font-family: 'Open Sans';
+        font-weight: 600;
+        text-transform: uppercase;
+        color: $ducan;
+        padding: 0.5em;
+        margin-top: -1em;
+    };
+}
+

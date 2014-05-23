@@ -1,0 +1,9 @@
+@import "compass";
+@import "breakpoint";
+@import "singularitygs";
+
+@import "../../variables/**/*";
+
+body {
+    background: url("../../../images/printlogo.gif");
+}

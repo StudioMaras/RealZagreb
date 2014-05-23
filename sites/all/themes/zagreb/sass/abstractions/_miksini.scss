@@ -1,0 +1,18 @@
+@import "compass";
+@import "breakpoint";
+@import "singularitygs";
+
+@import "../../variables/**/*";
+
+@mixin kucica-izbornika {
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    font-family: 'Open Sans';
+    font-weight: 600;
+    padding: 0.4em 1.3em 0.4em 1.3em;
+    vertical-align: middle;
+/*    height: 3em;
+    width: 7em;
+    margin: 10px;*/
+}

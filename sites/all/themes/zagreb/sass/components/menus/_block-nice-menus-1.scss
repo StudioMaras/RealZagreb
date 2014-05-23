@@ -1,0 +1,63 @@
+@import "compass";
+@import "breakpoint";
+@import "singularitygs";
+
+@import "../../variables/**/*";
+
+#block-nice-menus-1 .block__title {
+    display: none;
+}
+
+/* The <div> wrapping the nice menu ul */
+#block-nice-menus-1 {
+  list-style-type: none;
+  position: relative;
+  float: left;
+  left: 50%;
+  margin-top: 15px;
+}
+ 
+/* The nice menu ul */
+#block-nice-menus-1 #nice-menu-1 {
+    list-style-type: none;
+    outline-style: none;
+    position: relative;
+    float: left;
+    left: -50%;
+    li {
+        margin-right: 15px;
+        a {
+            @include kucica-izbornika;
+            border: 0.1em;
+            border-style: solid;
+            border-color: white;
+        };
+    };
+}
+
+#nice-menu-1 {
+    font-family: 'Open Sans';
+    font-weight: 600;
+    font-size: 1em;
+    text-transform: uppercase;
+    line-height: 20px;
+    li {background-color: rgba(255, 255, 255, 0);}
+}
+
+/*
+#nice-menu-1 li {
+    border: 0;
+}
+
+.menu-218, .menu-702 {
+    a {background: #0074d9;}
+}
+
+.menu-462, .menu-703 {
+    a {background: #ff851b;}
+}
+
+.menu-525, .menu-704 {
+    a {background: #ff4136;}
+}
+*/

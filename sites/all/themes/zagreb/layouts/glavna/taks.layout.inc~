@@ -1,0 +1,10 @@
+name = Taks
+description = razne taksativne stranice
+template = taks-layout
+
+; Regions
+regions[branding] = Branding
+regions[header] = Header
+regions[navigation] = Navigation
+regions[content] = Content
+

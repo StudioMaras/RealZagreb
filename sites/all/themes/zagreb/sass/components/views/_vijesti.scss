@@ -1,0 +1,111 @@
+@import "compass";
+@import "breakpoint";
+@import "singularitygs";
+
+@import "../../variables/**/*";
+
+.view-vijesti {
+    clear: both;
+}
+
+.view-vijesti .views-row {
+    width: 24%;
+    height: auto;
+    padding: 1em;
+
+/*    border: 1em solid rgb(0, 0, 0);
+    border: 1em solid rgba(0, 0, 0, 0);
+    -webkit-background-clip: padding-box;  for Safari
+    background-clip: padding-box;  for IE9+, Firefox 4+, Opera, Chrome */
+/*    margin: 5px;
+    border: 1px solid black;
+    border-radius: 10px;
+    background: SeaShell;*/
+    color: black;
+    float: left;	
+    position: relative;
+    font-family: 'Open Sans';
+    font-weight: 300;
+    line-height: 180%;
+    word-wrap:break-word;
+}
+
+.view-vijesti a {
+    position: relative;
+    font-size: 1.5em;
+    z-index: 3;
+}
+
+.view-vijesti a:hover {
+    color: $plavetnilo;
+}
+
+
+.view-vijesti {
+    .view-content {
+        margin-top: -2.5em;
+    };
+    .views-field-field-slika-vijest {
+        width: 100%;
+        height: auto;
+        border-radius: 3px;
+    };
+    .views-field-field-dogadaj {
+        a {
+            text-decoration: none;
+            font-size: 1.2em;
+            line-height: 100%;
+        };
+    };
+    .views-field-field-dogadaj-podnaslov {
+        line-height: 140%;
+    };
+    .views-field-field-sajtovi-body {
+        margin-top: 0.5em;
+        line-height: 150%;
+        .daj_vise {
+            a {
+                font-size: 1em;
+            };
+        };
+    };
+}
+
+/* Pager */
+
+#block-views-vijesti-block-3 .block__title {
+    height: 50px;
+    margin-left: 10px;
+}
+
+.views-slideshow-controls-top {
+    margin-left: 160px;
+}
+
+.views-slideshow-pager-field-item {
+    margin-top: -33px;
+    float: left;
+    padding: 5px;
+    a {
+        text-decoration: none;
+    };
+}
+
+.views-slideshow-pager-field-item.active {
+    a {
+        color: white;
+    }
+    background: #bbbbbb;
+    border-radius: 7px;
+}
+
+/* Responsive views slideshow */
+
+.views_slideshow_cycle_main {                                                      
+  width: 100%;                                                                     
+ .views-slideshow-cycle-main-frame {width: 100% !important; height: auto;}         
+ .views-slideshow-cycle-main-frame-row {width: 100% !important; height: auto;}     
+ .field-content { max-width: 100%; width: 100%;}                                   
+ .field-content img { max-width: 100%; width: 100%; height: auto; margin: 0; padding:0;} 
+} 
+

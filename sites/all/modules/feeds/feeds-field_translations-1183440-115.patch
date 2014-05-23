@@ -1,0 +1,881 @@
+diff --git a/feeds.info b/feeds.info
+index 0ce45e0..d51d76a 100644
+--- a/feeds.info
++++ b/feeds.info
+@@ -36,6 +36,7 @@ files[] = tests/feeds_mapper_date.test
+ files[] = tests/feeds_mapper_date_multiple.test
+ files[] = tests/feeds_mapper_field.test
+ files[] = tests/feeds_mapper_file.test
++files[] = tests/feeds_mapper_multilingual_fields.test
+ files[] = tests/feeds_mapper_path.test
+ files[] = tests/feeds_mapper_profile.test
+ files[] = tests/feeds_mapper.test
+diff --git a/feeds.module b/feeds.module
+index cba702d..b9cd6cf 100644
+--- a/feeds.module
++++ b/feeds.module
+@@ -896,6 +896,77 @@ function feeds_item_info_save($entity, $entity_id) {
+ }
+
+ /**
++ * Returns the language summary text for use in a mapper target summary_callback
++ *
++ * @param array $mapping
++ *   Associative array of the mapping settings.
++ * @param array $target
++ *   Array of target settings, as defined by the processor or
++ *   hook_feeds_processor_targets_alter().
++ * @param array $form
++ *   The whole mapping form.
++ * @param array $form_state
++ *   The form state of the mapping form.
++ *
++ * @return string
++ *   Returns, as a string that may contain HTML, the summary to display while
++ *   the full form isn't visible.
++ *   If the return value is empty, no summary and no option to view the form
++ *   will be displayed.
++ */
++function feeds_mapper_summary_language($mapping, $target, $form, $form_state) {
++  if (module_exists('locale')) {
++    list($field_name) = explode(':', $mapping['target']);
++    $info = field_info_field($field_name);
++    if ($info['translatable']) {
++      $language_options = array(LANGUAGE_NONE => t('All languages')) + locale_language_list('name');
++      if (empty($mapping['language'])) {
++        return t('Language: <strong>@search</strong>', array('@search' => $language_options[LANGUAGE_NONE]));
++      }
++      return t('Language: <strong>@search</strong>', array('@search' => $language_options[$mapping['language']]));
++    }
++  }
++  return FALSE;
++}
++
++/**
++ * Returns tha language form for use in a mapper target form_callback
++ *
++ * @param array $mapping
++ *   Associative array of the mapping settings.
++ * @param array $target
++ *   Array of target settings, as defined by the processor or
++ *   hook_feeds_processor_targets_alter().
++ * @param array $form
++ *   The whole mapping form.
++ * @param array $form_state
++ *   The form state of the mapping form.
++ *
++ * @return string
++ *   Returns, as a string that may contain HTML, the summary to display while
++ *   the full form isn't visible.
++ *   If the return value is empty, no summary and no option to view the form
++ *   will be displayed.
++ */
++function feeds_mapper_form_language($mapping, $target, $form, $form_state) {
++  $form = array();
++  if (module_exists('locale')) {
++    list($field_name) = explode(':', $mapping['target']);
++    $info = field_info_field($field_name);
++    if ($info['translatable']) {
++      $language_options = array(LANGUAGE_NONE => t('All languages')) + locale_language_list('name');
++      $form['language'] = array(
++        '#type' => 'select',
++        '#title' => t('Language'),
++        '#options' => $language_options,
++        '#default_value' => !empty($mapping['language']) ? $mapping['language'] : LANGUAGE_NONE,
++      );
++    }
++  }
++  return $form;
++}
++
++/**
+  * @}
+  */
+
+diff --git a/mappers/file.inc b/mappers/file.inc
+index e9cbc26..3e015c9 100644
+--- a/mappers/file.inc
++++ b/mappers/file.inc
+@@ -21,6 +21,8 @@ function file_feeds_processor_targets_alter(&$targets, $entity_type, $bundle_nam
+         'callback' => 'file_feeds_set_target',
+         'description' => t('The URI of the @label field.', array('@label' => $instance['label'])),
+         'real_target' => $name,
++        'summary_callback' => 'feeds_mapper_summary_language',
++        'form_callback' => 'feeds_mapper_form_language',
+       );
+
+       if ($info['type'] == 'image') {
+@@ -29,12 +31,16 @@ function file_feeds_processor_targets_alter(&$targets, $entity_type, $bundle_nam
+           'callback' => 'file_feeds_set_target',
+           'description' => t('The alt tag of the @label field.', array('@label' => $instance['label'])),
+           'real_target' => $name,
++          'summary_callback' => 'feeds_mapper_summary_language',
++          'form_callback' => 'feeds_mapper_form_language',
+         );
+         $targets[$name . ':title'] = array(
+           'name' => t('@label: Title', array('@label' => $instance['label'])),
+           'callback' => 'file_feeds_set_target',
+           'description' => t('The title of the @label field.', array('@label' => $instance['label'])),
+           'real_target' => $name,
++          'summary_callback' => 'feeds_mapper_summary_language',
++          'form_callback' => 'feeds_mapper_form_language',
+         );
+       }
+     }
+@@ -48,11 +54,14 @@ function file_feeds_processor_targets_alter(&$targets, $entity_type, $bundle_nam
+  * user has decided to map to and $value contains the value of the feed item
+  * element the user has picked as a source.
+  */
+-function file_feeds_set_target($source, $entity, $target, array $values) {
++function file_feeds_set_target($source, $entity, $target, array $values, $mapping = array()) {
+   // Add default of uri for backwards compatibility.
+   list($field_name, $sub_field) = explode(':', $target . ':uri');
+   $info = field_info_field($field_name);
+
++  // Set the language of the field depending on the mapping configuration.
++  $langcode = isset($mapping['language']) ? $mapping['language'] : LANGUAGE_NONE;
++
+   if ($sub_field == 'uri') {
+
+     foreach ($values as $k => $v) {
+@@ -84,30 +93,30 @@ function file_feeds_set_target($source, $entity, $target, array $values) {
+   }
+
+   // Populate entity.
+-  $field = isset($entity->$field_name) ? $entity->$field_name : array(LANGUAGE_NONE => array());
++  $field = isset($entity->$field_name) ? $entity->$field_name : array($langcode => array());
+   $delta = 0;
+   foreach ($values as $v) {
+     if ($info['cardinality'] == $delta) {
+       break;
+     }
+
+-    if (!isset($field[LANGUAGE_NONE][$delta])) {
+-      $field[LANGUAGE_NONE][$delta] = array();
++    if (!isset($field[$langcode][$delta])) {
++      $field[$langcode][$delta] = array();
+     }
+
+     switch ($sub_field) {
+       case 'alt':
+       case 'title':
+-        $field[LANGUAGE_NONE][$delta][$sub_field] = $v;
++        $field[$langcode][$delta][$sub_field] = $v;
+         break;
+
+       case 'uri':
+         if ($v) {
+           try {
+             $file = $v->getFile($destination);
+-            $field[LANGUAGE_NONE][$delta] += (array) $file;
++            $field[$langcode][$delta] += (array) $file;
+             // @todo: Figure out how to properly populate this field.
+-            $field[LANGUAGE_NONE][$delta]['display'] = 1;
++            $field[$langcode][$delta]['display'] = 1;
+           }
+           catch (Exception $e) {
+             watchdog_exception('Feeds', $e, nl2br(check_plain($e)));
+diff --git a/mappers/link.inc b/mappers/link.inc
+index 90b5268..54254a1 100644
+--- a/mappers/link.inc
++++ b/mappers/link.inc
+@@ -20,6 +20,8 @@ function link_feeds_processor_targets_alter(&$targets, $entity_type, $bundle_nam
+           'callback' => 'link_feeds_set_target',
+           'description' => t('The @label field of the entity.', array('@label' => $instance['label'])),
+           'real_target' => $name,
++          'summary_callback' => 'feeds_mapper_summary_language',
++          'form_callback' => 'feeds_mapper_form_language',
+         );
+       }
+       if (array_key_exists('title', $info['columns'])) {
+@@ -28,6 +30,8 @@ function link_feeds_processor_targets_alter(&$targets, $entity_type, $bundle_nam
+           'callback' => 'link_feeds_set_target',
+           'description' => t('The @label field of the entity.', array('@label' => $instance['label'])),
+           'real_target' => $name,
++          'summary_callback' => 'feeds_mapper_summary_language',
++          'form_callback' => 'feeds_mapper_form_language',
+         );
+       }
+     }
+@@ -41,19 +45,22 @@ function link_feeds_processor_targets_alter(&$targets, $entity_type, $bundle_nam
+  * user has decided to map to and $value contains the value of the feed item
+  * element the user has picked as a source.
+  */
+-function link_feeds_set_target($source, $entity, $target, array $values) {
++function link_feeds_set_target($source, $entity, $target, array $values, $mapping = array()) {
+   list($field_name, $column) = explode(':', $target);
+
+   $field = isset($entity->$field_name) ? $entity->$field_name : array('und' => array());
+   $delta = 0;
+
++  // Set the language of the field depending on the mapping configuration.
++  $langcode = isset($mapping['language']) ? $mapping['language'] : LANGUAGE_NONE;
++
+   foreach ($values as $value) {
+     if (is_object($value) && ($value instanceof FeedsElement)) {
+       $value = $value->getValue();
+     }
+
+     if (is_scalar($value)) {
+-      $field['und'][$delta][$column] = (string) $value;
++      $field[$langcode][$delta][$column] = (string) $value;
+     }
+     $delta++;
+   }
+diff --git a/mappers/number.inc b/mappers/number.inc
+index 338d569..7ed7e72 100644
+--- a/mappers/number.inc
++++ b/mappers/number.inc
+@@ -27,6 +27,8 @@ function number_feeds_processor_targets_alter(&$targets, $entity_type, $bundle_n
+         'name' => check_plain($instance['label']),
+         'callback' => 'number_feeds_set_target',
+         'description' => t('The @label field of the entity.', array('@label' => $instance['label'])),
++        'summary_callback' => 'feeds_mapper_summary_language',
++        'form_callback' => 'feeds_mapper_form_language',
+       );
+     }
+   }
+@@ -37,9 +39,17 @@ function number_feeds_processor_targets_alter(&$targets, $entity_type, $bundle_n
+  *
+  * Ensure that $value is a numeric to avoid database errors.
+  */
+-function number_feeds_set_target($source, $entity, $target, array $values) {
++function number_feeds_set_target($source, $entity, $target, array $values, $mapping = array()) {
++  // Set the language of the field depending on the mapping configuration.
++  $langcode = isset($mapping['language']) ? $mapping['language'] : LANGUAGE_NONE;
++
+   // Iterate over all values.
+-  $field = isset($entity->$target) ? $entity->$target : array('und' => array());
++  $field = isset($entity->$target) ? $entity->$target : array($langcode => array());
++
++  // If it's a new language we need to add it to the field
++  if (!isset($field[$langcode])) {
++    $field[$langcode] = array();
++  }
+
+   foreach ($values as $value) {
+
+@@ -48,7 +58,7 @@ function number_feeds_set_target($source, $entity, $target, array $values) {
+     }
+
+     if (is_numeric($value)) {
+-      $field['und'][] = array('value' => $value);
++      $field[$langcode][] = array('value' => $value);
+     }
+   }
+
+diff --git a/mappers/taxonomy.inc b/mappers/taxonomy.inc
+index 088a558..d513381 100644
+--- a/mappers/taxonomy.inc
++++ b/mappers/taxonomy.inc
+@@ -87,7 +87,10 @@ function taxonomy_feeds_set_target($source, $entity, $target, array $terms, $map
+   $mapping += array(
+     'term_search' => FEEDS_TAXONOMY_SEARCH_TERM_NAME,
+     'autocreate' => FALSE,
++    'language' => LANGUAGE_NONE,
+   );
++  // Grab the language for convenience
++  $langcode = $mapping['language'];
+
+   $info = field_info_field($target);
+
+@@ -110,10 +113,15 @@ function taxonomy_feeds_set_target($source, $entity, $target, array $terms, $map
+     ->range(0, 1);
+
+
+-  $field = isset($entity->$target) ? $entity->$target : array('und' => array());
++  $field = isset($entity->$target) ? $entity->$target : array($langcode => array());
++
++  // If it's a new language we need to add it to the field
++  if (!isset($field[$langcode])) {
++    $field[$langcode] = array();
++  }
+
+   // Allow for multiple mappings to the same target.
+-  $delta = count($field['und']);
++  $delta = count($field[$langcode]);
+
+   // Iterate over all values.
+   foreach ($terms as $term) {
+@@ -166,7 +174,7 @@ function taxonomy_feeds_set_target($source, $entity, $target, array $terms, $map
+     }
+
+     if ($tid && isset($cache['allowed_values'][$target][$tid])) {
+-      $field['und'][] = array('tid' => $tid);
++      $field[$langcode][] = array('tid' => $tid);
+       $delta++;
+     }
+   }
+@@ -257,11 +265,21 @@ function taxonomy_feeds_term_lookup_term_by_guid($guid) {
+  *   will be displayed.
+  */
+ function taxonomy_feeds_summary_callback($mapping, $target, $form, $form_state) {
++  $output = '';
+   $options = _taxonomy_feeds_form_callback_options();
+   if (empty($mapping['term_search'])) {
+-    return t('Search taxonomy terms by: <strong>@search</strong>', array('@search' => $options[FEEDS_TAXONOMY_SEARCH_TERM_NAME]));
++    $output = t('Search taxonomy terms by: <strong>@search</strong>', array('@search' => $options[FEEDS_TAXONOMY_SEARCH_TERM_NAME]));
++  }
++  else {
++    $output = t('Search taxonomy terms by: <strong>@search</strong>', array('@search' => $options[$mapping['term_search']]));
++  }
++  if ($language_summary = feeds_mapper_summary_language($mapping, $target, $form, $form_state)) {
++    $output .= '<br/>' . $language_summary;
+   }
+-  return t('Search taxonomy terms by: <strong>@search</strong>', array('@search' => $options[$mapping['term_search']]));
++  if (!empty($mapping['autocreate'])) {
++    $output .= '<br/>' . t('Autocreate Terms: <strong>Yes</strong>');
++  }
++  return $output;
+ }
+
+ /**
+@@ -272,7 +290,8 @@ function taxonomy_feeds_summary_callback($mapping, $target, $form, $form_state)
+  *   be populated with the form values.
+  */
+ function taxonomy_feeds_form_callback($mapping, $target, $form, $form_state) {
+-  return array(
++  $return = feeds_mapper_form_language($mapping, $target, $form, $form_state);
++  $return += array(
+     'term_search' => array(
+       '#type' => 'select',
+       '#title' => t('Search taxonomy terms by'),
+@@ -291,6 +310,8 @@ function taxonomy_feeds_form_callback($mapping, $target, $form, $form_state) {
+       ),
+     ),
+   );
++
++  return $return;
+ }
+
+ /**
+diff --git a/mappers/text.inc b/mappers/text.inc
+index 5646753..face4be 100644
+--- a/mappers/text.inc
++++ b/mappers/text.inc
+@@ -25,6 +25,8 @@ function text_feeds_processor_targets_alter(&$targets, $entity_type, $bundle_nam
+         'name' => check_plain($instance['label']),
+         'callback' => 'text_feeds_set_target',
+         'description' => t('The @label field of the entity.', array('@label' => $instance['label'])),
++        'summary_callback' => 'feeds_mapper_summary_language',
++        'form_callback' => 'feeds_mapper_form_language',
+       );
+     }
+   }
+@@ -33,12 +35,20 @@ function text_feeds_processor_targets_alter(&$targets, $entity_type, $bundle_nam
+ /**
+  * Callback for mapping text fields.
+  */
+-function text_feeds_set_target($source, $entity, $target, array $values) {
++function text_feeds_set_target($source, $entity, $target, array $values, $mapping = array()) {
+   if (isset($source->importer->processor->config['input_format'])) {
+     $format = $source->importer->processor->config['input_format'];
+   }
+
+-  $field = isset($entity->$target) ? $entity->$target : array('und' => array());
++  // Set the language of the field depending on the mapping configuration.
++  $langcode = isset($mapping['language']) ? $mapping['language'] : LANGUAGE_NONE;
++
++  $field = isset($entity->$target) ? $entity->$target : array($langcode => array());
++
++  // If it's a new language we need to add it to the field
++  if (!isset($field[$langcode])) {
++    $field[$langcode] = array();
++  }
+
+   // Iterate over all values.
+   foreach ($values as $value) {
+@@ -53,7 +63,7 @@ function text_feeds_set_target($source, $entity, $target, array $values) {
+         $value['format'] = $format;
+       }
+
+-      $field['und'][] = $value;
++      $field[$langcode][] = $value;
+     }
+   }
+
+diff --git a/plugins/FeedsNodeProcessor.inc b/plugins/FeedsNodeProcessor.inc
+index 203685a..9637d14 100644
+--- a/plugins/FeedsNodeProcessor.inc
++++ b/plugins/FeedsNodeProcessor.inc
+@@ -34,7 +34,6 @@ class FeedsNodeProcessor extends FeedsProcessor {
+     $node->type = $this->bundle();
+     $node->changed = REQUEST_TIME;
+     $node->created = REQUEST_TIME;
+-    $node->language = LANGUAGE_NONE;
+     $node->is_new = TRUE;
+     node_object_prepare($node);
+     // Populate properties that are set by node_object_prepare().
+diff --git a/plugins/FeedsProcessor.inc b/plugins/FeedsProcessor.inc
+index 6666276..306dc37 100755
+--- a/plugins/FeedsProcessor.inc
++++ b/plugins/FeedsProcessor.inc
+@@ -14,6 +14,9 @@ define('FEEDS_UPDATE_EXISTING', 2);
+ // processors.
+ define('FEEDS_PROCESS_LIMIT', 50);
+
++// Default Language trigger
++define('FEEDS_LANGUAGE_DEFAULT', 'xx_');
++
+ /**
+  * Thrown if a validation fails.
+  */
+@@ -77,6 +80,23 @@ abstract class FeedsProcessor extends FeedsPlugin {
+   }
+
+   /**
++   * Provides a list of language options for use in select lists.
++   *
++   * @return array
++   *   A keyed array of langcode => language.
++   */
++  public function languageOptions() {
++    $options = array(
++      FEEDS_LANGUAGE_DEFAULT => t('Default Language'),
++      LANGUAGE_NONE => t('Language neutral'),
++    );
++    foreach (language_list() as $langcode => $language) {
++      $options[$langcode] = $language->name;
++    }
++    return $options;
++  }
++
++  /**
+    * Create a new entity.
+    *
+    * @param $source
+@@ -216,11 +236,16 @@ abstract class FeedsProcessor extends FeedsPlugin {
+         // Build a new entity.
+         else {
+           $entity = $this->newEntity($source);
++          // Set the language if it wasn't set specifically by a processor
++          if (!isset($entity->language)) {
++            $entity->language = $this->getConfigLanguage();
++          }
+           $this->newItemInfo($entity, $source->feed_nid, $hash);
+         }
+
+         // Set property and field values.
+         $this->map($source, $parser_result, $entity);
++        $this->processEntityTitleReplacements($entity);
+         $this->entityValidate($entity);
+
+         // Allow modules to alter the entity before saving.
+@@ -236,6 +261,7 @@ abstract class FeedsProcessor extends FeedsPlugin {
+
+         // This will throw an exception on failure.
+         $this->entitySaveAccess($entity);
++        $this->processTranslations($entity);
+         $this->entitySave($entity);
+
+         // Allow modules to perform operations using the saved entity data.
+@@ -609,6 +635,7 @@ abstract class FeedsProcessor extends FeedsPlugin {
+       'input_format' => NULL,
+       'skip_hash_check' => FALSE,
+       'bundle' => $bundle,
++      'language' => LANGUAGE_NONE,
+     );
+   }
+
+@@ -635,6 +662,14 @@ abstract class FeedsProcessor extends FeedsPlugin {
+       );
+     }
+
++    $form['language'] = array(
++      '#type' => 'select',
++      '#options' => $this->languageOptions(),
++      '#title' => t('Language'),
++      '#required' => TRUE,
++      '#default_value' => $this->config['language'],
++    );
++
+     $tokens = array('@entities' => strtolower($info['label plural']));
+
+     $form['update_existing'] = array(
+@@ -732,6 +767,101 @@ abstract class FeedsProcessor extends FeedsPlugin {
+   }
+
+   /**
++   * Returns the configured language for the processor
++   *
++   * @return
++   *   The language code configured for the processor
++   */
++  public function getConfigLanguage() {
++    return ($this->config['language'] == FEEDS_LANGUAGE_DEFAULT) ? language_default('language') : $this->config['language'];
++  }
++
++  /**
++   * Returns the language for the entity.
++   *
++   * @param string $entity
++   *   The entity for which to get the language.
++   *
++   * @return
++   *   The language code for the entity, or the language code that's configured
++   *   for the processor if the entity doesn't have any language support.
++   */
++  public function getEntityLanguage($entity) {
++    $language = entity_language($this->entityType(), $entity);
++    return $language ? $language : $this->getConfigLanguage();
++  }
++
++  /**
++   * Process entity properties that have been replaced with the title module
++   *
++   * @param  object $entity
++   *   The entity to check for replaced properties
++   */
++  public function processEntityTitleReplacements(&$entity) {
++    if (module_exists('title')) {
++      // Get the possible replacements for this entity type
++      if ($replacements = title_field_replacement_info($this->entityType())) {
++        // Loop through replacements
++        foreach ($replacements as $legacy_field => $field_info) {
++          // Populate legacy field with value from the field of the language
++          // for the entity.
++          $language = $this->getEntityLanguage($entity);
++          if (!empty($entity->{$field_info['field']['field_name']}[$language]) && empty($entity->{$legacy_field})) {
++            $entity->{$legacy_field} = $entity->{$field_info['field']['field_name']}[$language][0]['value'];
++          }
++        }
++      }
++    }
++  }
++
++  /**
++   * Add translations to an entity for each mapped language
++   *
++   * @param  object $entity
++   *   The entity to add translations to
++   */
++  public function processTranslations(&$entity) {
++    // Add translations (if the entity_translation module exists) provided at
++    // least one field has a translation
++    if (module_exists('entity_translation')) {
++      $handler = entity_translation_get_handler($this->entityType(), $entity);
++      $languages = array();
++      $default_langcode = $this->getEntityLanguage($entity);
++
++      // Init the translations if there's not translation data yet
++      if (empty($entity->translations->data)) {
++        $handler->initTranslations();
++      }
++
++      // Loop through the mappings
++      foreach ($this->getMappings() as $mapping) {
++        if (!empty($mapping['language']) && $mapping['language'] != LANGUAGE_NONE && $mapping['language'] != $default_langcode && empty($entity->translations->data[$mapping['language']])) {
++          list($field_name) = explode(':', $mapping['target']);
++
++          // If this field's language has items we create a translation for it
++          if (!empty($entity->{$field_name}[$mapping['language']])) {
++            $translation = array(
++              'translate' => 0,
++              'status' => 1,
++              'language' => $mapping['language'],
++              'source' => $default_langcode,
++            );
++            $handler->setTranslation($translation, $entity);
++          }
++        }
++      }
++
++      // Loop through every language for the site, and remove translations for
++      // the one that hasn't got any values.
++      foreach (language_list() as $language) {
++        if (!isset($entity->translations->data[$language->language])) {
++          $handler->removeTranslation($language->language);
++        }
++      }
++    }
++  }
++
++  /**
+    * Retrieve the target entity's existing id if available. Otherwise return 0.
+    *
+    * @ingroup mappingapi
+diff --git a/tests/feeds/multilingual.csv b/tests/feeds/multilingual.csv
+new file mode 100644
+index 0000000..902dec7
+--- /dev/null
++++ b/tests/feeds/multilingual.csv
+@@ -0,0 +1,2 @@
++"guid","title","title_fr","body","body_fr","link","link_fr","number","number_fr","image","image_fr","category","category_fr"
++1,"Testing Multilingual Feeds 1","Teste Feeds Multilingue 1","This is the body","Ceci est la corps","http://google.ca","http://google.fr",1000,2000,"public://images/foosball.jpeg","public://images/la fayette.jpeg","News","Nouvelles"
+diff --git a/tests/feeds_mapper_multilingual_fields.test b/tests/feeds_mapper_multilingual_fields.test
+new file mode 100644
+index 0000000..61cd016
+--- /dev/null
++++ b/tests/feeds_mapper_multilingual_fields.test
+@@ -0,0 +1,261 @@
++<?php
++
++/**
++ * @file
++ * Test case for multilingual feeds
++ */
++
++/**
++ * Class for testing Feeds <em>content</em> mapper (with field translation
++ * provided by the entity_translation module)
++ */
++class FeedsMapperMultilingualFieldsTestCase extends FeedsMapperTestCase {
++  public static function getInfo() {
++    return array(
++      'name' => 'Mapper: Multilingual Fields',
++      'description' => 'Test Feeds Multilingual support.',
++      'group' => 'Feeds',
++      'dependencies' => array('entity_translation'),
++    );
++  }
++
++  function setUp() {
++
++    // Modules
++    $modules = array(
++      'locale',
++      'entity_translation',
++      'link',
++      'number',
++    );
++
++    $permissions = array(
++      'administer entity translation',
++      'translate any entity',
++      'administer languages',
++    );
++
++    parent::setUp($modules, $permissions);
++
++    // Add Categories vocabulary
++    $edit = array(
++      'name' => 'Categories',
++      'machine_name' => 'categories',
++    );
++    $this->drupalPost('admin/structure/taxonomy/add', $edit, 'Save');
++
++    // Create content type.
++    $typename = $this->createContentType(array(),
++      array(
++        'number' => 'number_integer',
++        'link' => 'link_field',
++        'image' => 'image',
++      )
++    );
++
++    // Create term reference field.
++    $field = array(
++      'field_name' => 'field_category',
++      'type' => 'taxonomy_term_reference',
++      'cardinality' => FIELD_CARDINALITY_UNLIMITED,
++      'settings' => array(
++        'allowed_values' => array(
++          array(
++            'vocabulary' => 'categories',
++            'parent' => 0,
++          ),
++        ),
++      ),
++    );
++    field_create_field($field);
++
++    // Add term reference field to article bundle.
++    $this->instance = array(
++      'field_name' => 'field_category',
++      'bundle' => $typename,
++      'entity_type' => 'node',
++      'widget' => array(
++        'type' => 'options_select',
++      ),
++      'display' => array(
++        'default' => array(
++          'type' => 'taxonomy_term_reference_link',
++        ),
++      ),
++    );
++    field_create_instance($this->instance);
++
++    // Configure Multilingual
++    $this->setupMultilingual($typename);
++
++    // Copy directory of source files, CSV file expects them in public://images
++    $this->copyDir($this->absolutePath() . '/tests/feeds/assets', 'public://images');
++
++    // Create an importer configuration with basic mapping.
++    $this->createImporterConfiguration('Test Multilingual Fields import from CSV', 'node');
++    $this->setPlugin('node', 'FeedsCSVParser');
++    $this->setPlugin('node', 'FeedsFileFetcher');
++    $this->setSettings('node', NULL, array('content_type' => ''));
++    $this->setSettings('node', 'FeedsNodeProcessor', array('bundle' => $typename, 'language' => 'en'));
++    $this->addMappings('node',
++      array(
++        array(
++          'source' => 'guid',
++          'target' => 'guid',
++          'unique' => TRUE,
++        ),
++        array(
++          'source' => 'title',
++          'target' => 'title',
++        ),
++        array(
++          'source' => 'body',
++          'target' => 'body',
++          'language' => 'en',
++        ),
++        array(
++          'source' => 'body_fr',
++          'target' => 'body',
++          'language' => 'fr',
++        ),
++        array(
++          'source' => 'number',
++          'target' => 'field_number',
++          'language' => 'en',
++        ),
++        array(
++          'source' => 'number_fr',
++          'target' => 'field_number',
++          'language' => 'fr',
++        ),
++        array(
++          'source' => 'link',
++          'target' => 'field_link:url',
++          'language' => 'en',
++        ),
++        array(
++          'source' => 'link_fr',
++          'target' => 'field_link:url',
++          'language' => 'fr',
++        ),
++        array(
++          'source' => 'image',
++          'target' => 'field_image:uri',
++          'language' => 'en',
++        ),
++        array(
++          'source' => 'image_fr',
++          'target' => 'field_image:uri',
++          'language' => 'fr',
++        ),
++        array(
++          'source' => 'category',
++          'target' => 'field_category',
++          'language' => 'en',
++          'autocreate' => TRUE,
++        ),
++        array(
++          'source' => 'category_fr',
++          'target' => 'field_category',
++          'language' => 'fr',
++          'autocreate' => TRUE,
++        ),
++      )
++    );
++  }
++
++  /**
++   * Tests multilingual mappings to translatable fields (entity translation)
++   */
++  public function testMultilingualFieldMappings() {
++
++    // Run Import
++    // Import CSV file.
++    $this->importFile('node', $this->absolutePath() . '/tests/feeds/multilingual.csv');
++    $this->assertText('Created 1 node');
++
++    // Check english field values
++    $this->drupalGet('en/node/1/edit');
++    $this->assertFieldByName("body[en][0][value]", 'This is the body', t('Found english form field for <em>body</em> with the expected value.'));
++    $this->assertFieldByName("field_number[en][0][value]", 1000, t('Found english form field for <em>number</em> with the expected value.'));
++    $this->assertFieldByName("field_link[en][0][url]", 'http://google.ca', t('Found english form field for <em>link</em> with the expected value.'));
++    $this->assertText("foosball.jpeg", t('Found english form field for <em>image</em> with the expected value.'));
++    $this->assertOptionSelected('edit-field-category-en', 1, t('Found english form field for <em>category</em> with the expected value'));
++
++    //
++    // Check French Field Values
++    $this->drupalGet('fr/node/1/edit');
++    $this->assertFieldByName("body[fr][0][value]", 'Ceci est la corps', t('Found french form field for <em>body</em> with the expected value.'));
++    $this->assertFieldByName("field_number[fr][0][value]", 2000, t('Found french form field for <em>number</em> with the expected value.'));
++    $this->assertFieldByName("field_link[fr][0][url]", 'http://google.fr', t('Found french form field for <em>link</em> with the expected value.'));
++    $this->assertText("la fayette.jpeg", t('Found french form field for <em>image</em> with the expected value.'));
++    $this->assertOptionSelected('edit-field-category-fr', 2, t('Found french form field for <em>category</em> with the expected value'));
++
++  }
++
++  /**
++   * Configures Drupal to be multilingual
++   */
++  public function setupMultilingual($typename) {
++    // Setup Other Language (french)
++    $edit = array(
++      'langcode' => 'fr',
++    );
++    $this->drupalPost('admin/config/regional/language/add', $edit, 'Add language');
++    $this->assertText('The language French has been created and can now be used.');
++
++    // Configure English Path Prefix
++    $edit = array(
++      'prefix' => 'en',
++    );
++    $this->drupalPost('admin/config/regional/language/edit/en', $edit, 'Save language');
++    // Configure French Path Prefix
++    $edit = array(
++      'prefix' => 'fr',
++    );
++    $this->drupalPost('admin/config/regional/language/edit/fr', $edit, 'Save language');
++
++    // Configure Language Detection
++    $edit = array(
++      'language[enabled][locale-url]' =>  1,
++      'language[weight][locale-url]' =>  -10,
++      'language[weight][locale-browser]' =>  -9,
++      'language[weight][locale-session]' =>  -8,
++      'language[weight][locale-user]' =>  -7,
++      'language[weight][language-default]' =>  -6,
++      'language_content[enabled][locale-url]' =>  1,
++      'language_content[weight][locale-url]' =>  -10,
++      'language_content[weight][locale-browser]' =>  -9,
++      'language_content[weight][locale-session]' =>  -8,
++      'language_content[weight][locale-user]' =>  -7,
++      'language_content[enabled][locale-interface]' =>  1,
++      'language_content[weight][locale-interface]' =>  -6,
++      'language_content[weight][language-default]' =>  -5,
++    );
++    $this->drupalPost('admin/config/regional/language/configure', $edit, 'Save settings');
++
++    // Enable entity field translation for content type
++    $edit = array(
++      'language_content_type' => 4,
++      'entity_translation_hide_translation_links' => 1,
++      'entity_translation_node_metadata' => 0,
++    );
++    $this->drupalPost('admin/structure/types/manage/' . $typename, $edit, t('Save content type'));
++
++    // Enable field translation on fields
++    $edit = array(
++      'field[translatable]' => 1,
++    );
++    $field_names = array(
++      'body' => 'body',
++      'field_number' => 'field_number',
++      'field_link' => 'field_link',
++      'field_image' => 'field_image',
++      'field_category' => 'field_category',
++    );
++    foreach ($field_names as $field_name) {
++      $this->drupalPost("admin/structure/types/manage/{$typename}/fields/{$field_name}", $edit, t('Save settings'));
++    }
++  }
++
++}
+diff --git a/tests/feeds_tests.info b/tests/feeds_tests.info
+index 0e1d123..f135070 100644
+--- a/tests/feeds_tests.info
++++ b/tests/feeds_tests.info
+@@ -4,4 +4,5 @@ package = Testing
+ version = VERSION
+ core = 7.x
+ test_dependencies[] = entity
++test_dependencies[] = entity_translation
+ hidden = TRUE

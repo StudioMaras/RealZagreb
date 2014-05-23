@@ -1,0 +1,50 @@
+@import "compass";
+@import "breakpoint";
+@import "singularitygs";
+
+@import "../../variables/**/*";
+
+#block-nice-menus-1 .block__title {
+    display: none;
+}
+
+/* The <div> wrapping the nice menu ul */
+#block-nice-menus-1 {
+  position: relative;
+  float: left;
+  left: 50%;
+}
+ 
+/* The nice menu ul */
+#block-nice-menus-1 #nice-menu-1 {
+  list-style-type: none;
+  position: relative;
+  float: left;
+  left: -50%;
+  li {a {@include kucica-izbornika}};
+}
+
+#nice-menu-1 {
+    font-family: 'Open Sans';
+    font-weight: 600;
+    font-size: 0.8em;
+    text-transform: uppercase;
+}
+
+/*#nice-menu-1 li {
+    border: 0;
+}
+
+/*
+.menu-218, .menu-702 {
+    a {background: #0074d9;}
+}
+
+.menu-462, .menu-703 {
+    a {background: #ff851b;}
+}
+
+.menu-525, .menu-704 {
+    a {background: #ff4136;}
+}
+*/

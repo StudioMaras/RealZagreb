@@ -1,0 +1,49 @@
+@import "compass";
+@import "breakpoint";
+@import "singularitygs";
+
+@import "../../variables/**/*";
+
+.view-vijesti .views-row {
+/*    width: $veliki_ducan_width;
+    height: $veliki_ducan_height;*/
+    width: 100%;
+    height: $mali_ducan_height;
+    padding: 1em;
+
+    border: 1em solid rgb(0, 0, 0);
+    border: 1em solid rgba(0, 0, 0, 0);
+    -webkit-background-clip: padding-box; /* for Safari */
+    background-clip: padding-box; /* for IE9+, Firefox 4+, Opera, Chrome */
+    
+    color: black;
+    float: left;
+    position: relative;
+    font-family: 'Open Sans';
+    font-weight: 300;
+    line-height: 180%;
+    word-wrap:break-word;
+    @include breakpoint($tab1) {
+        width: 50%;
+        height: $mali_ducan_height;
+    }
+    @include breakpoint($tab2) {
+        width: 33%;
+        height: $srednji_ducan_height;
+    }
+    @include breakpoint($desk) {
+        width: 25%;
+        height: $veliki_ducan_height;
+    }
+
+}
+
+.view-vijesti a {
+    position: relative;
+    z-index: 3;
+}
+
+.view-vijesti a:hover {
+    color: $plavetnilo;
+}
+

@@ -1,0 +1,8 @@
+h1 {
+    font-family: 'Open Sans';
+    font-weight: 300;
+    font-size: 2.5em;
+    text-transform: uppercase;
+    color: $ducan;
+}
+

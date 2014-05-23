@@ -1,0 +1,4 @@
+@mixin font-size($velicina-fonta){
+    velicina-fonta: $velicina-fonta;
+    velicina-fonta: ($velicina-fonta / $osnovna-velicina-fonta)*1rem;
+}

@@ -1,0 +1,26 @@
+@import "compass";
+@import "breakpoint";
+@import "singularitygs";
+
+@import "../../variables/**/*";
+
+.l-branding {
+        @include grid-span(3,1);
+}
+
+.node--article {
+        @include grid-span(3,3);
+}
+
+.node--page {
+        @include grid-span(3,3);
+        background: $cigla;
+        color: white;
+        padding: 3em;
+}
+
+.l-content {
+        color: #75B4FF;
+        padding-left: 1em;
+}
+

@@ -1,0 +1,10 @@
+diff --git a/leaflet_map.tpl.php b/leaflet_map.tpl.php
+index 9056f98..90096f8 100644
+--- a/leaflet_map.tpl.php
++++ b/leaflet_map.tpl.php
+@@ -4,4 +4,4 @@
+  * Template for a leaflet map
+  */
+ ?>
+-<div id="<?php print $map_id ?>" style="height: <?php print $height ?>"></div>
++<div id="<?php print $map_id ?>" style="height: <?php print $height ?>; z-index: 499;"></div>

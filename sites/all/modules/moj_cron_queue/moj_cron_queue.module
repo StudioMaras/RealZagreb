@@ -1,0 +1,34 @@
+<?php
+
+/**
+* Taken from here: 
+* http://getlevelten.com/blog/randall-knutson/cron-queues-processing-large-amounts-data-cron
+*/
+
+/**
+* Implementation of hook_cron_queue_info()
+*/
+
+function moj_cron_queue_cron_queue_info() {
+    $queues['runner'] = array(
+        'worker callback' => 'runner_run', // This is the callback function for each queue item.
+        'time' => 180, // This is the max run time per cron run in seconds.
+    );
+    return $queues;
+}
+
+/** * Implementation of hook_cron() */
+function moj_cron_queue_cron() {
+    $items = array("Hello", "World"); // Put everything in a queue for processing.
+    $queue = DrupalQueue::get('runner');
+    foreach($items as $item) {
+        $queue->createItem($item);
+    }
+} 
+
+/**
+* Worker Callback for the runner cron queue.
+*/
+function moj_cron_queue_run($item) {
+    print $item;
+} 

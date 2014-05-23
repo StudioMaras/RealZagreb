@@ -1,0 +1,19 @@
+@import "compass";
+@import "breakpoint";
+@import "singularitygs";
+
+@import "../../variables/**/*";
+
+.page-svi-ducani { 
+    background: white;
+}
+
+.l-content {
+    clear: both;
+    @include grid-span(10,2);
+}
+
+.page-svi-ducani-2 {
+    background-image: linear-gradient(bottom, #ff8b01 0%, #ffb547 100%);
+}
+

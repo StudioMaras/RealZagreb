@@ -1,0 +1,5 @@
+name = Custom Leaflet
+description = Tweak Leaflet settings.
+core = 7.x
+
+

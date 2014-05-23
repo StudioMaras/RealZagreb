@@ -1,0 +1,12 @@
+name = Custom Views
+description = Marko tweaks Views settings.
+core = 7.x
+version = "7.x-1"
+
+dependencies[] = ctools
+; Handlers
+files[] = custom_views_handler_special_data_filter_view.inc
+
+
+
+

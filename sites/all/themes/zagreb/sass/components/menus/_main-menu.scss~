@@ -1,0 +1,4 @@
+.block--system-main-menu li {
+    text-transform: uppercase;
+    display: inline;
+}

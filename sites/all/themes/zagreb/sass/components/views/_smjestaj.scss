@@ -1,0 +1,89 @@
+@import "compass";
+@import "breakpoint";
+@import "singularitygs";
+
+@import "../../variables/**/*";
+
+.view-smjestaj {
+    clear: both;
+}
+
+.view-smjestaj .views-row {
+    width: 100%;
+    height: auto;
+    padding: 1em;
+
+/*    border: 1em solid rgb(0, 0, 0);
+    border: 1em solid rgba(0, 0, 0, 0);
+    -webkit-background-clip: padding-box;  for Safari
+    background-clip: padding-box;  for IE9+, Firefox 4+, Opera, Chrome */
+/*    margin: 5px;
+    border: 1px solid black;
+    border-radius: 10px;
+    background: SeaShell;*/
+    color: black;
+    float: left;	
+    position: relative;
+    font-family: 'Open Sans';
+    font-weight: 300;
+    line-height: 180%;
+    word-wrap:break-word;
+    border-bottom: black solid 1px;
+    margin: 0.5em 0;
+}
+
+.view-smjestaj a {
+    position: relative;
+    font-size: 1.5em;
+    z-index: 3;
+}
+
+.view-smjestaj a:hover {
+    color: $plavetnilo;
+}
+
+
+.view-smjestaj {
+    .views-field-title {
+        float: left;
+        a {
+            text-decoration: none;
+            font-size: 1.2em;
+            line-height: 100%;
+        }
+    }
+    .views-field-field-smjestaj-zvjezdice {
+        float: left;
+        margin-left: 30px;
+        margin-right: 20px;
+    }
+    .views-field-field-smjestaj-adresa-thoroughfare {
+        clear: both;
+    }
+    .views-field-field-smjestaj-slika {
+        position: absolute;
+        margin-top: 10px;
+    }
+    .views-field-field-smjestaj-ocjena {
+        position: relative;
+        margin-left: 235px;
+    }
+    .views-field-field-smjestaj-opis {
+        position: relative;
+        margin-left: 235px;
+        line-height: 150%;
+        .daj_vise {
+            a {
+                font-size: 1em;
+            }
+        }
+    }
+    .views-field-nothing {
+        position: relative;
+        margin-left: 235px;
+        a {
+            font-size: 1em;
+        }
+    }
+}
+

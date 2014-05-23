@@ -1,0 +1,19 @@
+@import "compass";
+@import "breakpoint";
+@import "singularitygs";
+
+@import "../../variables/**/*";
+
+.view-sajtovi .views-field-field-naslov {
+    font-size: 1.2em;
+    color: #ff4136;
+}
+
+.view-sajtovi .views-field-body {
+    margin-left: 4em; margin-bottom: 0.5em;
+}
+
+.view-sajtovi .views-field-field-dogadaj {
+    margin-left: 4em; margin-bottom: 0.5em;
+}
+
