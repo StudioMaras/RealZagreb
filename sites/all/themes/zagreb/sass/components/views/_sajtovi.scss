@@ -9,38 +9,49 @@
     /* vijesti */
     .views-field-views-bulk-operations {
         margin-bottom: -0.8em;
-    };
+    }
     .views-field-field-naslov {
         font-size: 1.2em;
         color: #ff4136;
-    };
+    }
+    .views-field-field-tagovi {
+        a {
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+    }
+    .views-field-field-slika-vijest {
+    }
     .views-field-field-sajtovi-body, .views-field-field-dogadaj, .views-field-field-dogadaj-podnaslov, .views-field-field-slika-vijest {
         margin-left: 4em; margin-bottom: 0.5em;
-    };
+    }
     .views-field-field-sajtovi-body {
         margin-bottom: 2em;
-    };
+    }
     .views-field-field-status-vijesti {
         color: DarkRed;
-    };
+    }
 
     /* izbornik za vijesti */
     .form-submit {
         margin-right: 1em;
-    };
+    }
     .container-inline {
         border: none;
         float: left;
-    };
+    }
     .vbo-fieldset-select-all {
         border: none;
         margin-bottom: 2em;
-    };
+    }
     .fieldset-legend {
         display: none;
-    };
+    }
     .form-item-bundle-sajtovi--append::field-status-vijesti {
         display: none;
-    };
+    }
+    .vbo-fieldset-select-all .option {
+        background-image: url('sites/all/themes/zagreb/moj-logo.png');
+    }
 }
 

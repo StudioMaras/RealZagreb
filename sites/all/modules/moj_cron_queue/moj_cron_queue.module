@@ -32,3 +32,21 @@ function moj_cron_queue_cron() {
 function moj_cron_queue_run($item) {
     print $item;
 } 
+
+/**
+* Odavde: http://drupal.stackexchange.com/questions/8956/in-a-custom-module-how-do-i-get-all-the-nodes-of-a-certain-type
+*
+* $query = db_query("SELECT nid FROM {node} WHERE type = '%s'", $type);
+* 
+*  while ($result = db_fetch_object($query)) {
+*  $node = node_load($result->nid);
+*   // Use $node or store it in an array;
+* }
+* 
+* Odavde: https://api.drupal.org/api/examples/cron_example!cron_example.module/function/cron_example_queue_1_worker/7
+*
+* function cron_example_queue_1_worker($item) {
+*   cron_example_queue_report_work(1, $item);
+* }
+*/
+

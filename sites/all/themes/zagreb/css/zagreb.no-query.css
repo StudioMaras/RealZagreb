@@ -668,6 +668,86 @@ html[xmlns] .slides {
     background: #001f3f; }
 
 /* pomoći će ti HTML Color Picker: http://www.w3schools.com/tags/ref_colorpicker.asp */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_restorani\.scss}line{font-family:\000037}}
+.view-restorani {
+  clear: both; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_restorani\.scss}line{font-family:\0000311}}
+.view-restorani .views-row {
+  width: 100%;
+  height: auto;
+  padding: 1em;
+  /*    border: 1em solid rgb(0, 0, 0);
+      border: 1em solid rgba(0, 0, 0, 0);
+      -webkit-background-clip: padding-box;  for Safari
+      background-clip: padding-box;  for IE9+, Firefox 4+, Opera, Chrome */
+  /*    margin: 5px;
+      border: 1px solid black;
+      border-radius: 10px;
+      background: SeaShell;*/
+  color: black;
+  float: left;
+  position: relative;
+  font-family: 'Open Sans';
+  font-weight: 300;
+  line-height: 180%;
+  word-wrap: break-word;
+  border-bottom: black solid 1px;
+  margin: 0.5em 0; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_restorani\.scss}line{font-family:\0000335}}
+.view-restorani a {
+  position: relative;
+  font-size: 1.5em;
+  z-index: 3; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_restorani\.scss}line{font-family:\0000341}}
+.view-restorani a:hover {
+  color: #75b4ff; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_restorani\.scss}line{font-family:\0000347}}
+.view-restorani .views-field-title {
+  float: left; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_restorani\.scss}line{font-family:\0000349}}
+  .view-restorani .views-field-title a {
+    text-decoration: none;
+    font-size: 1.2em;
+    line-height: 100%; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_restorani\.scss}line{font-family:\0000355}}
+.view-restorani .views-field-field-restorani-zvjezdice {
+  float: left;
+  margin-left: 30px;
+  margin-right: 20px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_restorani\.scss}line{font-family:\0000360}}
+.view-restorani .views-field-field-restorani-adresa {
+  clear: both; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_restorani\.scss}line{font-family:\0000363}}
+.view-restorani .views-field-field-restorani-slika-link {
+  position: absolute;
+  margin-top: 10px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_restorani\.scss}line{font-family:\0000367}}
+.view-restorani .views-field-field-restorani-zvjezdice {
+  position: relative;
+  margin-left: 235px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_restorani\.scss}line{font-family:\0000371}}
+.view-restorani .views-field-field-restorani-rang .views-field-field-restorani-broj-recenzija .views-field-field-restorani-izbor-recenzija {
+  position: relative;
+  margin-left: 235px;
+  line-height: 150%; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_restorani\.scss}line{font-family:\0000376}}
+  .view-restorani .views-field-field-restorani-rang .views-field-field-restorani-broj-recenzija .views-field-field-restorani-izbor-recenzija .daj_vise a {
+    font-size: 1em; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_restorani\.scss}line{font-family:\0000381}}
+.view-restorani .views-field-nothing {
+  position: relative;
+  margin-left: 235px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_restorani\.scss}line{font-family:\0000384}}
+  .view-restorani .views-field-nothing a {
+    font-size: 1em;
+    text-transform: uppercase;
+    text-decoration: none; }
+
+/* pomoći će ti HTML Color Picker: http://www.w3schools.com/tags/ref_colorpicker.asp */
 @media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_sajtovi\.scss}line{font-family:\000037}}
 .view-sajtovi {
   /* vijesti */
@@ -679,33 +759,40 @@ html[xmlns] .slides {
   .view-sajtovi .views-field-field-naslov {
     font-size: 1.2em;
     color: #ff4136; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_sajtovi\.scss}line{font-family:\0000317}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_sajtovi\.scss}line{font-family:\0000318}}
+  .view-sajtovi .views-field-field-tagovi a {
+    text-decoration: none;
+    text-transform: uppercase; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_sajtovi\.scss}line{font-family:\0000325}}
   .view-sajtovi .views-field-field-sajtovi-body, .view-sajtovi .views-field-field-dogadaj, .view-sajtovi .views-field-field-dogadaj-podnaslov, .view-sajtovi .views-field-field-slika-vijest {
     margin-left: 4em;
     margin-bottom: 0.5em; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_sajtovi\.scss}line{font-family:\0000320}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_sajtovi\.scss}line{font-family:\0000328}}
   .view-sajtovi .views-field-field-sajtovi-body {
     margin-bottom: 2em; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_sajtovi\.scss}line{font-family:\0000323}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_sajtovi\.scss}line{font-family:\0000331}}
   .view-sajtovi .views-field-field-status-vijesti {
     color: DarkRed; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_sajtovi\.scss}line{font-family:\0000328}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_sajtovi\.scss}line{font-family:\0000336}}
   .view-sajtovi .form-submit {
     margin-right: 1em; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_sajtovi\.scss}line{font-family:\0000331}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_sajtovi\.scss}line{font-family:\0000339}}
   .view-sajtovi .container-inline {
     border: none;
     float: left; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_sajtovi\.scss}line{font-family:\0000335}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_sajtovi\.scss}line{font-family:\0000343}}
   .view-sajtovi .vbo-fieldset-select-all {
     border: none;
     margin-bottom: 2em; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_sajtovi\.scss}line{font-family:\0000339}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_sajtovi\.scss}line{font-family:\0000347}}
   .view-sajtovi .fieldset-legend {
     display: none; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_sajtovi\.scss}line{font-family:\0000342}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_sajtovi\.scss}line{font-family:\0000350}}
   .view-sajtovi .form-item-bundle-sajtovi--append::field-status-vijesti {
     display: none; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_sajtovi\.scss}line{font-family:\0000353}}
+  .view-sajtovi .vbo-fieldset-select-all .option {
+    background-image: url("sites/all/themes/zagreb/moj-logo.png"); }
 
 /* pomoći će ti HTML Color Picker: http://www.w3schools.com/tags/ref_colorpicker.asp */
 @media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_smjestaj\.scss}line{font-family:\000037}}
