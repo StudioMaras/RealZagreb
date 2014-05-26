@@ -1,0 +1,4 @@
+name = Moj Cron Queue
+description = Cron Queue za nešto
+core = 7.x
+php = 5.2

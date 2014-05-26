@@ -1,0 +1,7 @@
+<?php
+
+function moj_puni_linkovi_node_view($node) {
+  print $node->dogadaj_podnaslov[$node->language][0]["#value"];
+  print $node->title;
+  print $node->field_dogadaj[$node->language][0]["title"];
+}
