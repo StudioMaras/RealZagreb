@@ -913,71 +913,76 @@ html[xmlns] .slides {
 @media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_vijesti\.scss}line{font-family:\0000345}}
 .view-vijesti .view-content {
   margin-top: -2.5em; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_vijesti\.scss}line{font-family:\0000348}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_vijesti\.scss}line{font-family:\0000349}}
+.view-vijesti .views-field-field-tagovi a {
+  font-size: 0.8em;
+  text-decoration: none;
+  text-transform: uppercase; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_vijesti\.scss}line{font-family:\0000355}}
 .view-vijesti .views-field-field-slika-vijest {
   width: 100%;
   height: auto;
   border-radius: 3px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_vijesti\.scss}line{font-family:\0000354}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_vijesti\.scss}line{font-family:\0000361}}
 .view-vijesti .views-field-field-dogadaj a {
   text-decoration: none;
   font-size: 1.2em;
   line-height: 100%; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_vijesti\.scss}line{font-family:\0000360}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_vijesti\.scss}line{font-family:\0000367}}
 .view-vijesti .views-field-field-dogadaj-podnaslov {
   line-height: 140%; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_vijesti\.scss}line{font-family:\0000363}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_vijesti\.scss}line{font-family:\0000370}}
 .view-vijesti .views-field-field-sajtovi-body {
   margin-top: 0.5em;
   line-height: 150%; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_vijesti\.scss}line{font-family:\0000367}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_vijesti\.scss}line{font-family:\0000374}}
   .view-vijesti .views-field-field-sajtovi-body .daj_vise a {
     font-size: 1em; }
 
 /* Pager */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_vijesti\.scss}line{font-family:\0000376}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_vijesti\.scss}line{font-family:\0000383}}
 #block-views-vijesti-block-3 .block__title {
   height: 50px;
   margin-left: 10px; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_vijesti\.scss}line{font-family:\0000381}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_vijesti\.scss}line{font-family:\0000388}}
 .views-slideshow-controls-top {
   margin-left: 160px; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_vijesti\.scss}line{font-family:\0000385}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_vijesti\.scss}line{font-family:\0000392}}
 .views-slideshow-pager-field-item {
   margin-top: -33px;
   float: left;
   padding: 5px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_vijesti\.scss}line{font-family:\0000389}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_vijesti\.scss}line{font-family:\0000396}}
   .views-slideshow-pager-field-item a {
     text-decoration: none; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_vijesti\.scss}line{font-family:\0000394}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_vijesti\.scss}line{font-family:\00003101}}
 .views-slideshow-pager-field-item.active {
   background: #bbbbbb;
   border-radius: 7px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_vijesti\.scss}line{font-family:\0000395}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_vijesti\.scss}line{font-family:\00003102}}
   .views-slideshow-pager-field-item.active a {
     color: white; }
 
 /* Responsive views slideshow */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_vijesti\.scss}line{font-family:\00003104}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_vijesti\.scss}line{font-family:\00003111}}
 .views_slideshow_cycle_main {
   width: 100%; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_vijesti\.scss}line{font-family:\00003106}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_vijesti\.scss}line{font-family:\00003113}}
   .views_slideshow_cycle_main .views-slideshow-cycle-main-frame {
     width: 100% !important;
     height: auto; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_vijesti\.scss}line{font-family:\00003107}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_vijesti\.scss}line{font-family:\00003114}}
   .views_slideshow_cycle_main .views-slideshow-cycle-main-frame-row {
     width: 100% !important;
     height: auto; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_vijesti\.scss}line{font-family:\00003108}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_vijesti\.scss}line{font-family:\00003115}}
   .views_slideshow_cycle_main .field-content {
     max-width: 100%;
     width: 100%; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_vijesti\.scss}line{font-family:\00003109}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_vijesti\.scss}line{font-family:\00003116}}
   .views_slideshow_cycle_main .field-content img {
     max-width: 100%;
     width: 100%;
