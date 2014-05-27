@@ -1,7 +1,14 @@
 <?php
 
 function moj_puni_linkovi_node_view($node) {
-  print $node->dogadaj_podnaslov[$node->language][0]["#value"];
-  print $node->title;
-  print $node->field_dogadaj[$node->language][0]["title"];
+    if ($node->field_tagovi["hr"]["0"]["tid"] == 26) {
+            $mojlink = (string)$node->field_dogadaj["hr"]["0"]["url"];
+            print " 1 " . $mojlink;
+            $mojlink = substr($mojlink, 24);
+            print " 2 " . $mojlink;
+            $mojlink = "http://www.galerijaklovic.hr" . $mojlink;
+            print " 3 " . $mojlink;
+            $node->field_dogadaj["hr"]["0"]["url"] = $mojlink;
+            $node->field_dogadaj["hr"]["0"]["display_url"] = $mojlink;
+    }
 }
