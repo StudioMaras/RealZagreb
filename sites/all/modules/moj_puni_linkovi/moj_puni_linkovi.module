@@ -1,40 +1,45 @@
 <?php
 
-/*function moj_puni_linkovi_node_insert($node) {
+function moj_puni_linkovi_node_insert($node) {
 
     if (isset($node->field_tagovi)) {
 
-        /* Klovićevi dvori 
-        if ($node->field_tagovi["hr"]["0"]["tid"] == 26) {
-                $mojlink = (string)$node->field_dogadaj["hr"]["0"]["url"];
-                $mojlink = substr($mojlink, 24);
+        /* Klovicevi dvori - dogadaj_url */
+        if ($node->field_tagovi["en"]["0"]["tid"] == 26) {
+
+                /* prvo sredi link*/
+                $mojlink = (string)$node->field_dogadaj["en"]["0"]["url"];
                 $mojlink = "http://www.galerijaklovic.hr" . $mojlink;
+                /* dekodiranje u UTF i zamjena znakova */
                 $mojlink = rawurldecode($mojlink);
                 $mojlink = preg_replace("/%u([0-9a-f]{3,4})/i","&#x\\1;", urldecode($mojlink));
+                /* stavljanje novog linka svugdje (jos ne znam gdje treba tocno) */
                 $node->content["field_dogadaj"]["0"]["#element"]["url"] = $mojlink;
                 $node->content["field_dogadaj"]["0"]["#element"]["display_url"] = $mojlink;
                 $node->content["field_dogadaj"]["#items"]["0"]["url"] = $mojlink;
                 $node->content["field_dogadaj"]["#items"]["0"]["display_url"] = $mojlink;
-                $node->field_dogadaj["hr"]["0"]["url"] = $mojlink;
-                $node->field_dogadaj["hr"]["0"]["display_url"] = $mojlink;
+                $node->field_dogadaj["en"]["0"]["url"] = $mojlink;
+                $node->field_dogadaj["en"]["0"]["display_url"] = $mojlink;
+                /* snimanje polja */
+                field_attach_update('node', $node);
+                entity_get_controller('node')->resetCache(array($node->nid));
         }
 
-    }
-
-}
-
-/**  db_insert('mytable')->fields(array(
-    'nid' => $node->nid,
-    'extra' => $node->extra,
-  ))->execute();*/
-
-function moj_puni_linkovi_feeds_after_parse (FeedsSource $source, FeedsParserResult $result) {
-    $mojlink = (string)$result;
-    if (substr($mojlink, 1, 7) == "izlozba") {
-                $mojlink = substr($mojlink, 24);
-                $mojlink = "http://www.galerijaklovic.hr" . $mojlink;
+        /* HNK - slika_url */
+        if ($node->field_tagovi["en"]["0"]["tid"] == 24) {
+                $mojlink = (string)$node->field_slika_vijest ["en"]["0"]["url"];
+                /* dekodiranje u UTF i zamjena znakova */
                 $mojlink = rawurldecode($mojlink);
                 $mojlink = preg_replace("/%u([0-9a-f]{3,4})/i","&#x\\1;", urldecode($mojlink));
-                $result = $mojlink;
+                /* stavljanje novog linka svugdje (jos ne znam gdje treba tocno) */
+
+                /* snimanje polja */
+                field_attach_update('node', $node);
+                entity_get_controller('node')->resetCache(array($node->nid));
+        }
+
+
     }
+
 }
+
