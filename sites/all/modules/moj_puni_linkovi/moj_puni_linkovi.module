@@ -29,7 +29,7 @@
   ))->execute();*/
 
 function moj_puni_linkovi_feeds_after_parse (FeedsSource $source, FeedsParserResult $result) {
-    $mojlink = (string)$source;
+    $mojlink = (string)$result;
     if (substr($mojlink, 1, 7) == "izlozba") {
                 $mojlink = substr($mojlink, 24);
                 $mojlink = "http://www.galerijaklovic.hr" . $mojlink;
