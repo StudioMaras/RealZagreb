@@ -6,4 +6,5 @@ sites/*/files
 sites/*/private
 
 # Ignore images
-sites/*/images
+sites/*/images/
+
