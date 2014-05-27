@@ -1,14 +1,40 @@
 <?php
 
-function moj_puni_linkovi_node_view($node) {
-    if ($node->field_tagovi["hr"]["0"]["tid"] == 26) {
-            $mojlink = (string)$node->field_dogadaj["hr"]["0"]["url"];
-            print " 1 " . $mojlink;
-            $mojlink = substr($mojlink, 24);
-            print " 2 " . $mojlink;
-            $mojlink = "http://www.galerijaklovic.hr" . $mojlink;
-            print " 3 " . $mojlink;
-            $node->field_dogadaj["hr"]["0"]["url"] = $mojlink;
-            $node->field_dogadaj["hr"]["0"]["display_url"] = $mojlink;
+/*function moj_puni_linkovi_node_insert($node) {
+
+    if (isset($node->field_tagovi)) {
+
+        /* Klovićevi dvori 
+        if ($node->field_tagovi["hr"]["0"]["tid"] == 26) {
+                $mojlink = (string)$node->field_dogadaj["hr"]["0"]["url"];
+                $mojlink = substr($mojlink, 24);
+                $mojlink = "http://www.galerijaklovic.hr" . $mojlink;
+                $mojlink = rawurldecode($mojlink);
+                $mojlink = preg_replace("/%u([0-9a-f]{3,4})/i","&#x\\1;", urldecode($mojlink));
+                $node->content["field_dogadaj"]["0"]["#element"]["url"] = $mojlink;
+                $node->content["field_dogadaj"]["0"]["#element"]["display_url"] = $mojlink;
+                $node->content["field_dogadaj"]["#items"]["0"]["url"] = $mojlink;
+                $node->content["field_dogadaj"]["#items"]["0"]["display_url"] = $mojlink;
+                $node->field_dogadaj["hr"]["0"]["url"] = $mojlink;
+                $node->field_dogadaj["hr"]["0"]["display_url"] = $mojlink;
+        }
+
+    }
+
+}
+
+/**  db_insert('mytable')->fields(array(
+    'nid' => $node->nid,
+    'extra' => $node->extra,
+  ))->execute();*/
+
+function moj_puni_linkovi_feeds_after_parse (FeedsSource $source, FeedsParserResult $result) {
+    $mojlink = (string)$source;
+    if (substr($mojlink, 1, 7) == "izlozba") {
+                $mojlink = substr($mojlink, 24);
+                $mojlink = "http://www.galerijaklovic.hr" . $mojlink;
+                $mojlink = rawurldecode($mojlink);
+                $mojlink = preg_replace("/%u([0-9a-f]{3,4})/i","&#x\\1;", urldecode($mojlink));
+                $result = $mojlink;
     }
 }

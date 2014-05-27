@@ -936,16 +936,16 @@ html[xmlns] .slides {
   font-size: 1.5em;
   z-index: 3; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_vijesti\.scss}line{font-family:\0000339}}
-.view-vijesti a:hover {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_vijesti\.scss}line{font-family:\0000340}}
+.view-vijesti a:hover, .view-vijesti a:active, .view-vijesti a:focus {
   color: #75b4ff; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_vijesti\.scss}line{font-family:\0000345}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_vijesti\.scss}line{font-family:\0000347}}
 .view-vijesti .view-content {
   margin-top: -2.5em; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_vijesti\.scss}line{font-family:\0000349}}
-.view-vijesti .views-field-field-tagovi a {
-  font-size: 0.8em;
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_vijesti\.scss}line{font-family:\0000350}}
+.view-vijesti .views-field-field-tagovi {
+  font-size: 0.9em;
   text-decoration: none;
   text-transform: uppercase; }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_vijesti\.scss}line{font-family:\0000355}}

@@ -36,8 +36,10 @@
     z-index: 3;
 }
 
-.view-vijesti a:hover {
-    color: $plavetnilo;
+.view-vijesti {
+    a:hover, a:active, a:focus {
+        color: $plavetnilo;
+    }
 }
 
 
@@ -46,11 +48,9 @@
         margin-top: -2.5em;
     }
     .views-field-field-tagovi {
-        a {
-            font-size: 0.8em;
-            text-decoration: none;
-            text-transform: uppercase;
-        }
+        font-size: 0.9em;
+        text-decoration: none;
+        text-transform: uppercase;
     }
     .views-field-field-slika-vijest {
         width: 100%;
