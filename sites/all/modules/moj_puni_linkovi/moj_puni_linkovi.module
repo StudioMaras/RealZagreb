@@ -54,8 +54,10 @@ function moj_puni_linkovi_node_insert($node) {
                 entity_get_controller('node')->resetCache(array($node->nid));
         }
 
-        /* HNK en - slika_url */
+        /* HNK en - slika_url, naslov, dogadaj i body */
         if ($node->field_tagovi["hr"]["0"]["tid"] == 24) {
+                
+                /* slika url */
                 /* uzimam field_privremeni jer sam u njega stavio relative link */
                 $mojaslika = (string)$node->field_privremeni["und"]["0"]["value"];
                 /* dekodiranje u UTF (drukčije od Klovica) i zamjena znakova */
@@ -71,10 +73,75 @@ function moj_puni_linkovi_node_insert($node) {
                 /* snimanje polja */
                 field_attach_update('node', $node);
                 entity_get_controller('node')->resetCache(array($node->nid));
+
+                /* naslov i dogadaj */
+                /* dekodiranje u UTF i zamjena znakova */
+                $mojtekst = $node->title;
+                $mojtekst = utf8_decode($mojtekst);
+                $mojtekst = str_replace("?", "'", $mojtekst);
+                $node->title_field["und"]["0"]["value"] = $mojtekst;
+                $node->field_dogadaj["hr"]["0"]["title"] = $mojtekst;
+                $node->content["field_dogadaj"]["#items"]["0"]["title"] = $mojtekst;
+                $node->content["field_dogadaj"]["0"]["#element"]["title"] = $mojtekst;
+
+                /* body */
+                /* dekodiranje u UTF i zamjena znakova */
+                $mojtekst = $node->field_sajtovi_body["hr"]["0"]["value"];
+                $mojtekst = utf8_decode($mojtekst);
+                $node->field_sajtovi_body["hr"]["0"]["value"]  = $mojtekst;
+                $node->content["field_sajtovi_body"]["#items"]["0"]["value"] = $mojtekst;
+                /*$node->content["field_sajtovi_body"]["0"]["markup"] = $mojtekst;*/
+                   
+                /* snimanje polja */
+                field_attach_update('node', $node);
+                entity_get_controller('node')->resetCache(array($node->nid));
+
        }
+
+        /* Muzej prekinutih veza - dogadaj_url i slika_url */
+        if ($node->field_tagovi["hr"]["0"]["tid"] == 31) {
+
+                /* prvo sredi link*/
+                $mojlink = (string)$node->field_dogadaj["hr"]["0"]["url"];
+                $mojlink = "http://brokenships.com" . $mojlink;
+                /* dekodiranje u UTF i zamjena znakova */
+                $mojlink = rawurldecode($mojlink);
+                $mojlink = preg_replace("/%u([0-9a-f]{3,4})/i","&#x\\1;", urldecode($mojlink));
+                /* stavljanje novog linka svugdje (jos ne znam gdje treba tocno) */
+                $node->content["field_dogadaj"]["0"]["#element"]["url"] = $mojlink;
+                $node->content["field_dogadaj"]["0"]["#element"]["display_url"] = $mojlink;
+                $node->content["field_dogadaj"]["#items"]["0"]["url"] = $mojlink;
+                $node->content["field_dogadaj"]["#items"]["0"]["display_url"] = $mojlink;
+                $node->field_dogadaj["hr"]["0"]["url"] = $mojlink;
+                $node->field_dogadaj["hr"]["0"]["display_url"] = $mojlink;
+
+                /* slika url */
+                /* uzimam field_privremeni jer sam u njega stavio relative link */
+                $mojaslika = (string)$node->field_privremeni["und"]["0"]["value"];
+                $mojaslika = "http://brokenships.com" . $mojaslika;
+                $node->field_privremeni["und"]["0"]["value"] = $mojaslika;
+                $node->content["field_privremeni"]["#items"]["0"]["value"] = $mojaslika;
+                /* skidanje fajla */
+                $slikafajl = system_retrieve_file($mojaslika, NULL, TRUE, FILE_EXISTS_REPLACE);
+                $node->content["field_slika_vijest"]["#items"]["0"]["fid"] = $slikafajl->fid;
+                $node->field_slika_vijest["und"]["0"]["fid"] = $slikafajl->fid;
+
+                /* snimanje polja */
+                field_attach_update('node', $node);
+                entity_get_controller('node')->resetCache(array($node->nid));
+        }
+                
 
 
     }
 
 }
 
+/* za provjeru 
+function moj_puni_linkovi_node_view($node) {
+
+    if (isset($node->field_tagovi)) {
+        dprint_r($node);
+    }
+}
+*/
