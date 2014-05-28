@@ -62,21 +62,22 @@ img {
 // konfiguracija menija za izbor jezika
 
 #block-locale-language-content {
-    position: relative;
-    float: right;
+    position: absolute;
+    right: 40px;
+    top: -10px;
     h2 {display:none};
     ul {list-style-type: none};
     li {float:left};
     padding-right: 0.5em;
     a:active {background-color: white};
-    a {@include kucica-izbornika};
-    a {padding: 0.8em 0.5em 0.5em 0.5em;}
-/*        padding: 0em 1em 1em 1em;
-        border-top: 1em;
-        border-bottom: 0em;
-        background: $sivo;
-        border-radius: 20px;
-    };*/
+    a {
+        color: white;
+        text-align: left;
+        text-decoration: none;
+        font-family: 'Open Sans';
+        font-weight: 300;
+        padding-right: 0.7em;
+    }
 }
 
 // svi sadrzaji moraju biti spusteni zbog glavnih menija
@@ -105,4 +106,12 @@ z-index: 499;
 
 .l-region--footer {
     clear: both;
+}
+
+// Search
+
+#search-block-form {
+    position: absolute;
+    right: 40px;
+    top: 40px;
 }

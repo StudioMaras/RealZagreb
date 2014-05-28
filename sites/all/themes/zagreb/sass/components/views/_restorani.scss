@@ -63,6 +63,10 @@
     .views-field-field-restorani-slika-link {
         position: absolute;
         margin-top: 10px;
+        a {
+            text-decoration: none;
+            font-size: 1em;
+        }
     }
     .views-field-field-restorani-zvjezdice {
         position: relative;

@@ -1,0 +1,20 @@
+@import "compass";
+@import "breakpoint";
+@import "singularitygs";
+
+@import "../../variables/**/*";
+
+.search-result h3 {
+    a {
+        text-decoration: none;
+    }
+}
+
+.search-result__info {
+    display: none;
+}
+
+#search-block-form #edit-submit {
+    color: white;
+    background: #264a7e;
+}
