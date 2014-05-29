@@ -6,5 +6,5 @@ sites/*/files
 sites/*/private
 
 # Ignore images
-sites/*/images/
+sites/all/themes/zagreb/images/
 

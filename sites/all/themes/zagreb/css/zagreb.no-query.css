@@ -6,13 +6,13 @@ img, media {
   max-width: 100%; }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/base\/_tagovi\.scss}line{font-family:\000031}}
-.hnk {
+.hnk, .croatian.national.theater {
   color: white;
   background-color: Crimson;
   padding-left: 1em; }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/base\/_tagovi\.scss}line{font-family:\000037}}
-.klovićevi.dvori {
+.klovićevi.dvori, .muzej.prekinutih.veza {
   color: white;
   background-color: DarkCyan;
   padding-left: 1em; }
