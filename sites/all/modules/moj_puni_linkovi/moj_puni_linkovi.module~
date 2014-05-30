@@ -1,83 +1,89 @@
 <?php
 
+function prefiks_dogadaj ($noud, $prefiks) {
+    $novi = (string)$noud->field_dogadaj["hr"]["0"]["url"];
+    $novi = $prefiks . $novi;
+    return $novi;
+}
+
+function dekodiranje ($novi) {
+    /* dekodiranje i zamjena znakova */
+    $novi = rawurldecode($novi);
+    $novi = utf8_decode($novi);
+    $novi = preg_replace("/%u([0-9a-f]{3,4})/i","&#x\\1;", urldecode($novi));
+    return $novi;
+}
+
+function link_za_dogadaj_url ($noud, $novi) {
+    /* stavljanje novog linka svugdje (jos ne znam gdje treba tocno) */
+    $noud->content["field_dogadaj"]["0"]["#element"]["url"] = $novi;
+    $noud->content["field_dogadaj"]["0"]["#element"]["display_url"] = $novi;
+    $noud->content["field_dogadaj"]["#items"]["0"]["url"] = $novi;
+    $noud->content["field_dogadaj"]["#items"]["0"]["display_url"] = $novi;
+    $noud->field_dogadaj["hr"]["0"]["url"] = $novi;
+    $noud->field_dogadaj["hr"]["0"]["display_url"] = $novi;
+    return $noud;
+}
+
+function skidanje_fajla ($noud, $slika) {
+    /* skidanje fajla */
+    $slikafajl = system_retrieve_file($slika, NULL, TRUE, FILE_EXISTS_REPLACE);
+    if ($slikafajl->fid !== null) {
+        $noud->content["field_slika_vijest"]["#items"]["0"]["fid"] = $slikafajl->fid;
+        $noud->field_slika_vijest["und"]["0"]["fid"] = $slikafajl->fid;
+    }
+    return $noud;
+}
+
+function snimanje_polja ($noud) {
+    /* snimanje polja */
+    field_attach_update('node', $noud);
+    entity_get_controller('node')->resetCache(array($noud->nid));
+}
+
+
 function moj_puni_linkovi_node_insert($node) {
 
     if (isset($node->field_tagovi)) {
 
-        /* Klovicevi dvori - dogadaj_url */
+        /* Klovicevi dvori */
         if ($node->field_tagovi["hr"]["0"]["tid"] == 26) {
 
-                /* prvo sredi link*/
-                $mojlink = (string)$node->field_dogadaj["hr"]["0"]["url"];
-                $mojlink = "http://www.galerijaklovic.hr" . $mojlink;
-                /* dekodiranje u UTF i zamjena znakova */
-                $mojlink = rawurldecode($mojlink);
-                $mojlink = preg_replace("/%u([0-9a-f]{3,4})/i","&#x\\1;", urldecode($mojlink));
-                /* stavljanje novog linka svugdje (jos ne znam gdje treba tocno) */
-                $node->content["field_dogadaj"]["0"]["#element"]["url"] = $mojlink;
-                $node->content["field_dogadaj"]["0"]["#element"]["display_url"] = $mojlink;
-                $node->content["field_dogadaj"]["#items"]["0"]["url"] = $mojlink;
-                $node->content["field_dogadaj"]["#items"]["0"]["display_url"] = $mojlink;
-                $node->field_dogadaj["hr"]["0"]["url"] = $mojlink;
-                $node->field_dogadaj["hr"]["0"]["display_url"] = $mojlink;
-                /* snimanje polja */
-                field_attach_update('node', $node);
-                entity_get_controller('node')->resetCache(array($node->nid));
+                /* dogadaj url */
+                $prefiks = "http://www.galerijaklovic.hr";
+                $mojlink = prefiks_dogadaj($node, $prefiks);
+                $mojlink = dekodiranje($mojlink);
+                $node = link_za_dogadaj_url($node, $mojlink);
+                snimanje_polja ($node);
         }
 
-       /* Sveuciliste u Zagrebu - dogadaj_url i slika_url */
+        /* Sveuciliste u Zagrebu */
         if ($node->field_tagovi["hr"]["0"]["tid"] == 28) {
 
-                /* prvo sredi link*/
-                $mojlink = (string)$node->field_dogadaj["hr"]["0"]["url"];
-                $mojlink = "http://www.unizg.hr" . $mojlink;
-                /* dekodiranje u UTF i zamjena znakova */
-                $mojlink = rawurldecode($mojlink);
-                $mojlink = preg_replace("/%u([0-9a-f]{3,4})/i","&#x\\1;", urldecode($mojlink));
-                /* stavljanje novog linka svugdje (jos ne znam gdje treba tocno) */
-                $node->content["field_dogadaj"]["0"]["#element"]["url"] = $mojlink;
-                $node->content["field_dogadaj"]["0"]["#element"]["display_url"] = $mojlink;
-                $node->content["field_dogadaj"]["#items"]["0"]["url"] = $mojlink;
-                $node->content["field_dogadaj"]["#items"]["0"]["display_url"] = $mojlink;
-                $node->field_dogadaj["hr"]["0"]["url"] = $mojlink;
-                $node->field_dogadaj["hr"]["0"]["display_url"] = $mojlink;
+                /* dogadaj url */
+                $prefiks = "http://www.unizg.hr";
+                $mojlink = prefiks_dogadaj($node, $prefiks);
+                $mojlink = dekodiranje($mojlink);
+                link_za_dogadaj_url($mojlink);
 
-                /* uzimam field_privremeni jer sam u njega stavio relative link */
+                /* slika url */
                 $mojaslika = (string)$node->field_privremeni["und"]["0"]["value"];
                 $mojaslika = "http://www.unizg.hr" . $mojaslika;
-                $slikafajl = system_retrieve_file($mojaslika, NULL, TRUE, FILE_EXISTS_REPLACE);
-                $node->content["field_slika_vijest"]["#items"]["0"]["fid"] = $slikafajl->fid;
-                $node->field_slika_vijest["und"]["0"]["fid"] = $slikafajl->fid;
-
-                /* snimanje polja */
-                field_attach_update('node', $node);
-                entity_get_controller('node')->resetCache(array($node->nid));
+                skidanje_fajla($node, $mojaslika);
+                snimanje_polja ($node);
         }
 
-        /* HNK en - slika_url, naslov, dogadaj i body */
+        /* HNK en */
         if ($node->field_tagovi["hr"]["0"]["tid"] == 24) {
                 
                 /* slika url */
-                /* uzimam field_privremeni jer sam u njega stavio relative link */
                 $mojaslika = (string)$node->field_privremeni["und"]["0"]["value"];
-                /* dekodiranje u UTF (drukčije od Klovica) i zamjena znakova */
-                $mojaslika = rawurldecode($mojaslika);
-                $mojaslika = preg_replace("/%u([0-9a-f]{3,4})/i","&#x\\1;", urldecode($mojaslika));
-                $mojaslika = utf8_decode($mojaslika);
-                $node->field_privremeni["und"]["0"]["value"] = $mojaslika;
-                $node->content["field_privremeni"]["#items"]["0"]["value"] = $mojaslika;
-                /* skidanje fajla */
-                $slikafajl = system_retrieve_file($mojaslika, NULL, TRUE, FILE_EXISTS_REPLACE);
-                $node->content["field_slika_vijest"]["#items"]["0"]["fid"] = $slikafajl->fid;
-                $node->field_slika_vijest["und"]["0"]["fid"] = $slikafajl->fid;
-                /* snimanje polja */
-                field_attach_update('node', $node);
-                entity_get_controller('node')->resetCache(array($node->nid));
+                $mojaslika = dekodiranje ($mojaslika);
+                skidanje_fajla($node, $mojaslika);
+                snimanje_polja ($node);
 
                 /* naslov i dogadaj */
-                /* dekodiranje u UTF i zamjena znakova */
                 $mojtekst = $node->title;
-                $mojtekst = utf8_decode($mojtekst);
                 $mojtekst = str_replace("?", "'", $mojtekst);
                 $node->title_field["und"]["0"]["value"] = $mojtekst;
                 $node->field_dogadaj["hr"]["0"]["title"] = $mojtekst;
@@ -85,57 +91,32 @@ function moj_puni_linkovi_node_insert($node) {
                 $node->content["field_dogadaj"]["0"]["#element"]["title"] = $mojtekst;
 
                 /* body */
-                /* dekodiranje u UTF i zamjena znakova */
                 $mojtekst = $node->field_sajtovi_body["hr"]["0"]["value"];
-                $mojtekst = utf8_decode($mojtekst);
                 $node->field_sajtovi_body["hr"]["0"]["value"]  = $mojtekst;
                 $node->content["field_sajtovi_body"]["#items"]["0"]["value"] = $mojtekst;
-                /*$node->content["field_sajtovi_body"]["0"]["markup"] = $mojtekst;*/
-                   
-                /* snimanje polja */
-                field_attach_update('node', $node);
-                entity_get_controller('node')->resetCache(array($node->nid));
-
+                snimanje_polja ($node); 
        }
 
-        /* Muzej prekinutih veza - dogadaj_url i slika_url */
+        /* Muzej prekinutih veza */
         if ($node->field_tagovi["hr"]["0"]["tid"] == 31) {
 
-                /* prvo sredi link*/
-                $mojlink = (string)$node->field_dogadaj["hr"]["0"]["url"];
-                $mojlink = "http://brokenships.com" . $mojlink;
-                /* dekodiranje u UTF i zamjena znakova */
-                $mojlink = rawurldecode($mojlink);
-                $mojlink = preg_replace("/%u([0-9a-f]{3,4})/i","&#x\\1;", urldecode($mojlink));
-                /* stavljanje novog linka svugdje (jos ne znam gdje treba tocno) */
-                $node->content["field_dogadaj"]["0"]["#element"]["url"] = $mojlink;
-                $node->content["field_dogadaj"]["0"]["#element"]["display_url"] = $mojlink;
-                $node->content["field_dogadaj"]["#items"]["0"]["url"] = $mojlink;
-                $node->content["field_dogadaj"]["#items"]["0"]["display_url"] = $mojlink;
-                $node->field_dogadaj["hr"]["0"]["url"] = $mojlink;
-                $node->field_dogadaj["hr"]["0"]["display_url"] = $mojlink;
+                /* dogadaj url */
+                $prefiks = "http://brokenships.com";
+                $mojlink = prefiks_dogadaj($node, $prefiks);
+                $mojlink = dekodiranje($mojlink);
+                link_za_dogadaj_url($mojlink);
 
                 /* slika url */
-                /* uzimam field_privremeni jer sam u njega stavio relative link */
                 $mojaslika = (string)$node->field_privremeni["und"]["0"]["value"];
                 $mojaslika = "http://brokenships.com" . $mojaslika;
-                $node->field_privremeni["und"]["0"]["value"] = $mojaslika;
-                $node->content["field_privremeni"]["#items"]["0"]["value"] = $mojaslika;
-                /* skidanje fajla */
-                $slikafajl = system_retrieve_file($mojaslika, NULL, TRUE, FILE_EXISTS_REPLACE);
-                $node->content["field_slika_vijest"]["#items"]["0"]["fid"] = $slikafajl->fid;
-                $node->field_slika_vijest["und"]["0"]["fid"] = $slikafajl->fid;
-
-                /* snimanje polja */
-                field_attach_update('node', $node);
-                entity_get_controller('node')->resetCache(array($node->nid));
+                skidanje_fajla($node, $mojaslika);
+                snimanje_polja ($node);
         }
-                
-
 
     }
 
 }
+
 /* za provjeru 
 function moj_puni_linkovi_node_view($node) {
 
