@@ -183,6 +183,10 @@ ul.nice-menu-down li li.menuparent:hover {
   float: left;
   left: 50%;
 }
+
+ul.nice-menu li ul li {
+margin-top:-6px;
+}
  
 /* The nice menu ul */
 #block-nice-menus-1 #nice-menu-1 {
@@ -191,15 +195,17 @@ ul.nice-menu-down li li.menuparent:hover {
     position: relative;
     float: left;
     left: -50%;
-    /*li {background-color: rgba(255, 255, 255, 0);}*/
+ 
     li {
+        border: 0;
         margin-right: 15px;
-        border: 1px dashed white;
-        background: rgba(38, 74, 126, 1);
+/*        background: rgba(38, 74, 126, 1);*/
+        background: rgba(56, 109, 185, 1);
+
     };
     li:hover {
         border: 0;
-        background: rgba(56, 109, 185, 1);
+        background: rgba(0, 153, 255, 1);
     }
     a {
         color: white;
@@ -208,25 +214,19 @@ ul.nice-menu-down li li.menuparent:hover {
         font-size: 1.2em;
         text-transform: uppercase;
         text-decoration: none;
-        padding: 0.4em 0.7em;
+        padding: 0.3em 0.9em;
+    }
+    li.menu-851, li.menu-850 {background: $sto-raditi}
+    li.menu-851:hover, li.menu-850:hover {background: $sto-raditi-hover}
+    .menu-851, .menu-850 {
+        li {background: $sto-raditi}
+        li:hover {background: $sto-raditi-hover}
+    }
+    li.menu-1095, li.menu-1133 {background: $gdje-spavati}
+    li.menu-1095:hover, li.menu-1133:hover {background: $gdje-spavati-hover}
+    .menu-1095, .menu-1133 {
+        li {background: $gdje-spavati}
+        li:hover {background: $gdje-spavati-hover}
     }
 }
 
-
-/*
-#nice-menu-1 li {
-    border: 0;
-}
-
-.menu-218, .menu-702 {
-    a {background: #0074d9;}
-}
-
-.menu-462, .menu-703 {
-    a {background: #ff851b;}
-}
-
-.menu-525, .menu-704 {
-    a {background: #ff4136;}
-}
-*/

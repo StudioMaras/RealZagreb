@@ -1,5 +1,7 @@
 @charset "UTF-8";
 /* pomoći će ti HTML Color Picker: http://www.w3schools.com/tags/ref_colorpicker.asp */
+/* meniji */
+/* kategorije */
 /* No files to import found in ../../variables/**\/* */
 @media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/base\/_media\.scss}line{font-family:\000031}}
 img, media {
@@ -7,21 +9,21 @@ img, media {
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/base\/_tagovi\.scss}line{font-family:\000031}}
 .hnk, .croatian.national.theater {
-  color: white;
-  background-color: Crimson;
-  padding-left: 1em; }
+  padding: 0.5em 1em;
+  border-radius: 10px 10px 0 0;
+  background-color: crimson; }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/base\/_tagovi\.scss}line{font-family:\000037}}
-.klovićevi.dvori, .muzej.prekinutih.veza {
-  color: white;
-  background-color: DarkCyan;
-  padding-left: 1em; }
+.klovićevi.dvori, .muzej.prekinutih.veza, .museum.of.broken.relationships {
+  padding: 0.5em 1em;
+  border-radius: 10px 10px 0 0;
+  background-color: darkcyan; }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/base\/_tagovi\.scss}line{font-family:\0000313}}
 .sveučilište.u.zagrebu {
-  color: white;
-  background-color: GoldenRod;
-  padding-left: 1em; }
+  padding: 0.5em 1em;
+  border-radius: 10px 10px 0 0;
+  background-color: goldenrod; }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/base\/_typography\.scss}line{font-family:\000031}}
 h1 {
@@ -317,6 +319,8 @@ html[xmlns] .slides {
   display: none; }
 
 /* pomoći će ti HTML Color Picker: http://www.w3schools.com/tags/ref_colorpicker.asp */
+/* meniji */
+/* kategorije */
 @media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/_leaflet\.scss}line{font-family:\000037}}
 .field--name-field-geo {
   /*    @include grid-span(2,5);
@@ -356,6 +360,8 @@ html[xmlns] .slides {
   color: white; }
 
 /* pomoći će ti HTML Color Picker: http://www.w3schools.com/tags/ref_colorpicker.asp */
+/* meniji */
+/* kategorije */
 @media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/maps\/_fakulteti\.scss}line{font-family:\000037}}
 .view-karta-proba .views-field-field-dogadaj {
   color: #254a93;
@@ -412,6 +418,8 @@ html[xmlns] .slides {
   margin-top: -1em; }
 
 /* pomoći će ti HTML Color Picker: http://www.w3schools.com/tags/ref_colorpicker.asp */
+/* meniji */
+/* kategorije */
 @media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/menus\/_block-nice-menus-1\.scss}line{font-family:\000038}}
 ul.nice-menu,
 ul.nice-menu ul {
@@ -605,25 +613,29 @@ ul.nice-menu-down li li.menuparent:hover {
   float: left;
   left: 50%; }
 
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/menus\/_block-nice-menus-1\.scss}line{font-family:\00003187}}
+ul.nice-menu li ul li {
+  margin-top: -6px; }
+
 /* The nice menu ul */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/menus\/_block-nice-menus-1\.scss}line{font-family:\00003188}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/menus\/_block-nice-menus-1\.scss}line{font-family:\00003192}}
 #block-nice-menus-1 #nice-menu-1 {
   list-style-type: none;
   outline-style: none;
   position: relative;
   float: left;
-  left: -50%;
-  /*li {background-color: rgba(255, 255, 255, 0);}*/ }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/menus\/_block-nice-menus-1\.scss}line{font-family:\00003195}}
+  left: -50%; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/menus\/_block-nice-menus-1\.scss}line{font-family:\00003199}}
   #block-nice-menus-1 #nice-menu-1 li {
+    border: 0;
     margin-right: 15px;
-    border: 1px dashed white;
-    background: #264a7e; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/menus\/_block-nice-menus-1\.scss}line{font-family:\00003200}}
+    /*        background: rgba(38, 74, 126, 1);*/
+    background: #386db9; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/menus\/_block-nice-menus-1\.scss}line{font-family:\00003206}}
   #block-nice-menus-1 #nice-menu-1 li:hover {
     border: 0;
-    background: #386db9; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/menus\/_block-nice-menus-1\.scss}line{font-family:\00003204}}
+    background: #0099ff; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/menus\/_block-nice-menus-1\.scss}line{font-family:\00003210}}
   #block-nice-menus-1 #nice-menu-1 a {
     color: white;
     font-family: 'Open Sans';
@@ -631,26 +643,35 @@ ul.nice-menu-down li li.menuparent:hover {
     font-size: 1.2em;
     text-transform: uppercase;
     text-decoration: none;
-    padding: 0.4em 0.7em; }
+    padding: 0.3em 0.9em; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/menus\/_block-nice-menus-1\.scss}line{font-family:\00003219}}
+  #block-nice-menus-1 #nice-menu-1 li.menu-851, #block-nice-menus-1 #nice-menu-1 li.menu-850 {
+    background: #386db9; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/menus\/_block-nice-menus-1\.scss}line{font-family:\00003220}}
+  #block-nice-menus-1 #nice-menu-1 li.menu-851:hover, #block-nice-menus-1 #nice-menu-1 li.menu-850:hover {
+    background: #0099ff; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/menus\/_block-nice-menus-1\.scss}line{font-family:\00003222}}
+  #block-nice-menus-1 #nice-menu-1 .menu-851 li, #block-nice-menus-1 #nice-menu-1 .menu-850 li {
+    background: #386db9; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/menus\/_block-nice-menus-1\.scss}line{font-family:\00003223}}
+  #block-nice-menus-1 #nice-menu-1 .menu-851 li:hover, #block-nice-menus-1 #nice-menu-1 .menu-850 li:hover {
+    background: #0099ff; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/menus\/_block-nice-menus-1\.scss}line{font-family:\00003225}}
+  #block-nice-menus-1 #nice-menu-1 li.menu-1095, #block-nice-menus-1 #nice-menu-1 li.menu-1133 {
+    background: #7a42d6; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/menus\/_block-nice-menus-1\.scss}line{font-family:\00003226}}
+  #block-nice-menus-1 #nice-menu-1 li.menu-1095:hover, #block-nice-menus-1 #nice-menu-1 li.menu-1133:hover {
+    background: #c057c6; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/menus\/_block-nice-menus-1\.scss}line{font-family:\00003228}}
+  #block-nice-menus-1 #nice-menu-1 .menu-1095 li, #block-nice-menus-1 #nice-menu-1 .menu-1133 li {
+    background: #7a42d6; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/menus\/_block-nice-menus-1\.scss}line{font-family:\00003229}}
+  #block-nice-menus-1 #nice-menu-1 .menu-1095 li:hover, #block-nice-menus-1 #nice-menu-1 .menu-1133 li:hover {
+    background: #c057c6; }
 
-/*
-#nice-menu-1 li {
-    border: 0;
-}
-
-.menu-218, .menu-702 {
-    a {background: #0074d9;}
-}
-
-.menu-462, .menu-703 {
-    a {background: #ff851b;}
-}
-
-.menu-525, .menu-704 {
-    a {background: #ff4136;}
-}
-*/
 /* pomoći će ti HTML Color Picker: http://www.w3schools.com/tags/ref_colorpicker.asp */
+/* meniji */
+/* kategorije */
 @media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_bicikli\.scss}line{font-family:\000037}}
 .view-bicikli {
   margin: auto;
@@ -766,6 +787,8 @@ ul.nice-menu-down li li.menuparent:hover {
   display: inline; }
 
 /* pomoći će ti HTML Color Picker: http://www.w3schools.com/tags/ref_colorpicker.asp */
+/* meniji */
+/* kategorije */
 @media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_ducani\.scss}line{font-family:\000037}}
 .view-proba-ducani {
   margin: auto;
@@ -881,6 +904,8 @@ ul.nice-menu-down li li.menuparent:hover {
   display: inline; }
 
 /* pomoći će ti HTML Color Picker: http://www.w3schools.com/tags/ref_colorpicker.asp */
+/* meniji */
+/* kategorije */
 @media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_fakulteti\.scss}line{font-family:\000037}}
 .view-popis-fakulteti {
   clear: both; }
@@ -904,6 +929,8 @@ ul.nice-menu-down li li.menuparent:hover {
     background: #001f3f; }
 
 /* pomoći će ti HTML Color Picker: http://www.w3schools.com/tags/ref_colorpicker.asp */
+/* meniji */
+/* kategorije */
 @media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_restorani\.scss}line{font-family:\000037}}
 .view-restorani {
   clear: both; }
@@ -988,6 +1015,8 @@ ul.nice-menu-down li li.menuparent:hover {
     text-decoration: none; }
 
 /* pomoći će ti HTML Color Picker: http://www.w3schools.com/tags/ref_colorpicker.asp */
+/* meniji */
+/* kategorije */
 @media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_sajtovi\.scss}line{font-family:\000037}}
 .view-sajtovi {
   /* vijesti */
@@ -1035,6 +1064,8 @@ ul.nice-menu-down li li.menuparent:hover {
     background-image: url("sites/all/themes/zagreb/moj-logo.png"); }
 
 /* pomoći će ti HTML Color Picker: http://www.w3schools.com/tags/ref_colorpicker.asp */
+/* meniji */
+/* kategorije */
 @media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_smjestaj\.scss}line{font-family:\000037}}
 .view-smjestaj {
   clear: both; }
@@ -1073,53 +1104,84 @@ ul.nice-menu-down li li.menuparent:hover {
   color: #75b4ff; }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_smjestaj\.scss}line{font-family:\0000347}}
+.view-smjestaj .view-header {
+  font-family: 'Open Sans';
+  font-weight: 300;
+  font-size: 1em;
+  color: #254a93;
+  border-bottom: 1px solid #254a93; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_smjestaj\.scss}line{font-family:\0000354}}
 .view-smjestaj .views-field-title {
-  float: left; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_smjestaj\.scss}line{font-family:\0000349}}
+  clear: both;
+  float: left;
+  position: relative;
+  margin-right: 2em; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_smjestaj\.scss}line{font-family:\0000359}}
   .view-smjestaj .views-field-title a {
     text-decoration: none;
     font-size: 1.2em;
     line-height: 100%; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_smjestaj\.scss}line{font-family:\0000355}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_smjestaj\.scss}line{font-family:\0000365}}
 .view-smjestaj .views-field-field-smjestaj-zvjezdice {
+  display: inline;
   float: left;
-  margin-left: 30px;
-  margin-right: 20px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_smjestaj\.scss}line{font-family:\0000360}}
+  margin-right: 1.5em; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_smjestaj\.scss}line{font-family:\0000370}}
+.view-smjestaj .views-field-field-smjestaj-ocjena {
+  display: inline;
+  float: left;
+  margin-right: 2em;
+  /*        margin-left: 235px;*/ }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_smjestaj\.scss}line{font-family:\0000376}}
 .view-smjestaj .views-field-field-smjestaj-adresa-thoroughfare {
-  clear: both; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_smjestaj\.scss}line{font-family:\0000363}}
+  display: inline; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_smjestaj\.scss}line{font-family:\0000379}}
 .view-smjestaj .views-field-field-smjestaj-slika {
   position: absolute;
+  height: 125px;
+  border: 2px solid #386db9;
+  border-radius: 5px;
   margin-top: 10px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_smjestaj\.scss}line{font-family:\0000367}}
-.view-smjestaj .views-field-field-smjestaj-ocjena {
-  position: relative;
-  margin-left: 235px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_smjestaj\.scss}line{font-family:\0000371}}
-.view-smjestaj #leaflet-map {
-  position: absolute;
-  width: 220px;
-  margin-top: 110px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_smjestaj\.scss}line{font-family:\0000376}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_smjestaj\.scss}line{font-family:\0000386}}
+.view-smjestaj .views-field-field-smjestaj-geo {
+  float: left;
+  width: 225px;
+  border: 2px solid #0099ff;
+  margin-top: 147px;
+  border-radius: 5px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_smjestaj\.scss}line{font-family:\0000391}}
+  .view-smjestaj .views-field-field-smjestaj-geo .leaflet-control {
+    font-size: 0.6em; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_smjestaj\.scss}line{font-family:\0000394}}
+  .view-smjestaj .views-field-field-smjestaj-geo .leaflet-marker-icon {
+    width: 50px;
+    height: auto; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_smjestaj\.scss}line{font-family:\00003100}}
 .view-smjestaj .views-field-field-smjestaj-opis {
+  color: black;
   position: relative;
-  margin-left: 235px;
+  padding: 1em;
+  border: solid 2px #c057c6;
+  border-radius: 10px;
+  margin-top: 10px;
+  margin-left: 240px;
   line-height: 150%; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_smjestaj\.scss}line{font-family:\0000381}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_smjestaj\.scss}line{font-family:\00003110}}
   .view-smjestaj .views-field-field-smjestaj-opis .daj_vise a {
     font-size: 1em; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_smjestaj\.scss}line{font-family:\0000386}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_smjestaj\.scss}line{font-family:\00003115}}
 .view-smjestaj .views-field-nothing {
   position: relative;
-  margin-left: 235px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_smjestaj\.scss}line{font-family:\0000389}}
+  margin-left: 250px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_smjestaj\.scss}line{font-family:\00003118}}
   .view-smjestaj .views-field-nothing a {
     font-size: 1em;
     text-transform: uppercase;
     text-decoration: none; }
 
 /* pomoći će ti HTML Color Picker: http://www.w3schools.com/tags/ref_colorpicker.asp */
+/* meniji */
+/* kategorije */
 @media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_vijesti\.scss}line{font-family:\000037}}
 .view-vijesti {
   clear: both;
@@ -1165,47 +1227,53 @@ ul.nice-menu-down li li.menuparent:hover {
 .view-vijesti .views-field-field-tagovi {
   font-size: 0.9em;
   text-decoration: none;
-  text-transform: uppercase; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_vijesti\.scss}line{font-family:\0000358}}
+  text-transform: uppercase;
+  color: white;
+  line-height: 100%; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_vijesti\.scss}line{font-family:\0000360}}
 .view-vijesti .views-field-field-slika-vijest {
   width: 100%;
-  height: auto;
-  border-radius: 3px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_vijesti\.scss}line{font-family:\0000364}}
-.view-vijesti .views-field-field-dogadaj a {
-  text-decoration: none;
-  font-size: 1.2em;
-  line-height: 100%; }
+  height: 160px;
+  overflow: hidden;
+  border-radius: 0 0 10px 10px;
+  margin-bottom: 10px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_vijesti\.scss}line{font-family:\0000367}}
+.view-vijesti .views-field-field-dogadaj {
+  line-height: 150%;
+  padding: 0.8em 0 0.6em 0; }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_vijesti\.scss}line{font-family:\0000370}}
+  .view-vijesti .views-field-field-dogadaj a {
+    text-decoration: none;
+    font-size: 1.2em; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_vijesti\.scss}line{font-family:\0000375}}
 .view-vijesti .views-field-field-dogadaj-podnaslov {
   line-height: 140%; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_vijesti\.scss}line{font-family:\0000373}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_vijesti\.scss}line{font-family:\0000378}}
 .view-vijesti .views-field-field-sajtovi-body {
-  margin-top: 0.5em;
   line-height: 150%; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_vijesti\.scss}line{font-family:\0000377}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_vijesti\.scss}line{font-family:\0000381}}
   .view-vijesti .views-field-field-sajtovi-body .daj_vise a {
     font-size: 1em; }
 
 /* Pager */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_vijesti\.scss}line{font-family:\0000386}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_vijesti\.scss}line{font-family:\0000390}}
 #block-views-vijesti-block-3 .block__title {
   height: 50px;
   margin-left: 2em;
   margin-right: 2em; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_vijesti\.scss}line{font-family:\0000392}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_vijesti\.scss}line{font-family:\0000396}}
 .views-slideshow-controls-top {
   margin-left: 160px; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_vijesti\.scss}line{font-family:\0000396}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_vijesti\.scss}line{font-family:\00003100}}
 .views-slideshow-pager-field-item {
   margin-top: -30px;
   float: left;
   padding: 3px 10px;
   margin-left: 9px;
   margin-right: 1px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_vijesti\.scss}line{font-family:\00003102}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_vijesti\.scss}line{font-family:\00003106}}
   .views-slideshow-pager-field-item a {
     color: #254a93;
     font-family: 'Open Sans';
@@ -1213,31 +1281,31 @@ ul.nice-menu-down li li.menuparent:hover {
     font-size: 1.2em;
     text-decoration: none; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_vijesti\.scss}line{font-family:\00003111}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_vijesti\.scss}line{font-family:\00003115}}
 .views-slideshow-pager-field-item.active {
   background: #254a93;
   border-radius: 35px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_vijesti\.scss}line{font-family:\00003112}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_vijesti\.scss}line{font-family:\00003116}}
   .views-slideshow-pager-field-item.active a {
     color: white; }
 
 /* Responsive views slideshow */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_vijesti\.scss}line{font-family:\00003121}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_vijesti\.scss}line{font-family:\00003125}}
 .views_slideshow_cycle_main {
   width: 100%; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_vijesti\.scss}line{font-family:\00003123}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_vijesti\.scss}line{font-family:\00003127}}
   .views_slideshow_cycle_main .views-slideshow-cycle-main-frame {
     width: 100% !important;
     height: auto; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_vijesti\.scss}line{font-family:\00003124}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_vijesti\.scss}line{font-family:\00003128}}
   .views_slideshow_cycle_main .views-slideshow-cycle-main-frame-row {
     width: 100% !important;
     height: auto; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_vijesti\.scss}line{font-family:\00003125}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_vijesti\.scss}line{font-family:\00003129}}
   .views_slideshow_cycle_main .field-content {
     max-width: 100%;
     width: 100%; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_vijesti\.scss}line{font-family:\00003126}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_vijesti\.scss}line{font-family:\00003130}}
   .views_slideshow_cycle_main .field-content img {
     max-width: 100%;
     width: 100%;

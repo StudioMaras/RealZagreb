@@ -54,24 +54,28 @@
         font-size: 0.9em;
         text-decoration: none;
         text-transform: uppercase;
+        color: white;
+        line-height: 100%;
     }
     .views-field-field-slika-vijest {
         width: 100%;
-        height: auto;
-        border-radius: 3px;
+        height: 160px;
+        overflow: hidden;
+        border-radius: 0 0 10px 10px;
+        margin-bottom: 10px;
     }
     .views-field-field-dogadaj {
+        line-height: 150%;
+        padding: 0.8em 0 0.6em 0;
         a {
             text-decoration: none;
             font-size: 1.2em;
-            line-height: 100%;
         }
     }
     .views-field-field-dogadaj-podnaslov {
         line-height: 140%;
     }
     .views-field-field-sajtovi-body {
-        margin-top: 0.5em;
         line-height: 150%;
         .daj_vise {
             a {

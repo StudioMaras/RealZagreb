@@ -1,18 +1,18 @@
 .hnk, .croatian.national.theater {
-    color: white;
-    background-color: Crimson;
-    padding-left: 1em;
+    padding: 0.5em 1em;
+    border-radius: 10px 10px 0 0;
+    background-color: $kazalista;
 }
 
-.klovićevi.dvori, .muzej.prekinutih.veza {
-    color: white;
-    background-color: DarkCyan;
-    padding-left: 1em;
+.klovićevi.dvori, .muzej.prekinutih.veza, .museum.of.broken.relationships {
+    padding: 0.5em 1em;
+    border-radius: 10px 10px 0 0;
+    background-color: $muzeji;
 }
 
 .sveučilište.u.zagrebu {
-    color: white;
-    background-color: GoldenRod;
-    padding-left: 1em;
+    padding: 0.5em 1em;
+    border-radius: 10px 10px 0 0;
+    background-color: $ostalo;
 }
     
