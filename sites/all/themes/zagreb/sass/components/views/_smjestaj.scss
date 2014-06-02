@@ -51,6 +51,22 @@
         color: $ducan;
         border-bottom: 1px solid $ducan;
     }
+    .form-item-sort-bef-combine {
+        font-family: 'Open Sans';
+        font-weight: 300;
+        font-size: 0.5em;
+        float: left;
+        color: $ducan;
+        padding: 0.5em;
+        margin: 1em;
+        .form-type-bef-link a {
+            color: white;
+            background-color: $ducan;
+            padding: 0.5em 0.2em;
+            margin: 0.5em 0.2em;
+            text-decoration: none;
+        }
+    }        
     .views-field-title {
         clear: both;
         float: left;

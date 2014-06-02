@@ -44,8 +44,36 @@
 
 
 .view-smjestaj {
+    .view-header {
+        font-family: 'Open Sans';
+        font-weight: 300;
+        font-size: 1em;
+        color: $ducan;
+        border-bottom: 1px solid $ducan;
+    }
+    .form-item-sort-bef-combine {
+        font-family: 'Open Sans';
+        font-weight: 300;
+        font-size: 1em;
+        .label {
+            float: left;
+            color: $ducan;
+            padding: 0.5em;
+            margin: 1em;
+        }
+        .form-type-bef-link a {
+            float: left;
+            color: white;
+            background-color: $ducan;
+            padding: 0.5em;
+            margin: 1em;
+        }
+    }        
     .views-field-title {
+        clear: both;
         float: left;
+        position: relative;
+        margin-right: 2em;
         a {
             text-decoration: none;
             font-size: 1.2em;
@@ -53,29 +81,48 @@
         }
     }
     .views-field-field-smjestaj-zvjezdice {
+        display: inline;
         float: left;
-        margin-left: 30px;
-        margin-right: 20px;
+        margin-right: 1.5em;
+    }
+    .views-field-field-smjestaj-ocjena {
+        display: inline;
+        float: left;
+        margin-right: 2em;
+/*        margin-left: 235px;*/
     }
     .views-field-field-smjestaj-adresa-thoroughfare {
-        clear: both;
+        display: inline;
     }
     .views-field-field-smjestaj-slika {
         position: absolute;
+        height: 125px;
+        border: 2px solid $sto-raditi;
+        border-radius: 5px;
         margin-top: 10px;
     }
-    .views-field-field-smjestaj-ocjena {
-        position: relative;
-        margin-left: 235px;
-    }
-    #leaflet-map {
-        position: absolute;
-        width: 200px;
-        margin-top: 10px;
+    .views-field-field-smjestaj-geo {
+        float: left;
+        width: 225px;
+        border: 2px solid $sto-raditi-hover;
+        margin-top: 147px;
+        .leaflet-control {
+            font-size: 0.6em;
+        }
+        .leaflet-marker-icon {
+            width: 50px;
+            height: auto;
+        }
+        border-radius: 5px;
     }
     .views-field-field-smjestaj-opis {
+        color: black;
         position: relative;
-        margin-left: 235px;
+        padding: 1em;
+        border: solid 2px $gdje-spavati-hover;
+        border-radius: 10px;
+        margin-top: 10px;
+        margin-left: 240px;
         line-height: 150%;
         .daj_vise {
             a {
@@ -85,7 +132,7 @@
     }
     .views-field-nothing {
         position: relative;
-        margin-left: 235px;
+        margin-left: 250px;
         a {
             font-size: 1em;
             text-transform: uppercase;
