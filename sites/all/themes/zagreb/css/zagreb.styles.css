@@ -1090,106 +1090,124 @@ ul.nice-menu li ul li {
   font-weight: 300;
   line-height: 180%;
   word-wrap: break-word;
-  border-bottom: black solid 1px;
-  margin: 0.5em 0; }
+  border: solid 5px darkcyan;
+  border-radius: 25px;
+  margin: 2em 0; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_smjestaj\.scss}line{font-family:\0000335}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_smjestaj\.scss}line{font-family:\0000336}}
 .view-smjestaj a {
   position: relative;
   font-size: 1.5em;
   z-index: 3; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_smjestaj\.scss}line{font-family:\0000341}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_smjestaj\.scss}line{font-family:\0000342}}
 .view-smjestaj a:hover {
   color: #75b4ff; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_smjestaj\.scss}line{font-family:\0000347}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_smjestaj\.scss}line{font-family:\0000348}}
 .view-smjestaj .view-header {
   font-family: 'Open Sans';
   font-weight: 300;
   font-size: 1em;
-  color: #254a93;
-  border-bottom: 1px solid #254a93; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_smjestaj\.scss}line{font-family:\0000354}}
+  margin: 1em;
+  color: #254a93; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_smjestaj\.scss}line{font-family:\0000355}}
 .view-smjestaj .form-item-sort-bef-combine {
+  width: 1000px;
   font-family: 'Open Sans';
   font-weight: 300;
-  font-size: 0.5em;
-  float: left;
-  color: #254a93;
-  padding: 0.5em;
-  margin: 1em; }
+  font-size: 0.6em;
+  padding-bottom: 7em; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_smjestaj\.scss}line{font-family:\0000361}}
+  .view-smjestaj .form-item-sort-bef-combine label {
+    display: none; }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_smjestaj\.scss}line{font-family:\0000362}}
-  .view-smjestaj .form-item-sort-bef-combine .form-type-bef-link a {
-    color: white;
-    background-color: #254a93;
-    padding: 0.5em 0.2em;
-    margin: 0.5em 0.2em;
-    text-decoration: none; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_smjestaj\.scss}line{font-family:\0000370}}
+  .view-smjestaj .form-item-sort-bef-combine .form-type-bef-link {
+    float: left; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_smjestaj\.scss}line{font-family:\0000364}}
+    .view-smjestaj .form-item-sort-bef-combine .form-type-bef-link a {
+      color: white;
+      background-color: #254a93;
+      border-radius: 25px;
+      padding: 0.5em 1em;
+      margin: 1em 0.3em;
+      text-decoration: none;
+      text-transform: uppercase; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_smjestaj\.scss}line{font-family:\0000374}}
+  .view-smjestaj .form-item-sort-bef-combine #edit-sort-bef-combine-field-smjestaj-ocjena-value-asc a {
+    background-color: darkcyan; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_smjestaj\.scss}line{font-family:\0000375}}
+  .view-smjestaj .form-item-sort-bef-combine #edit-sort-bef-combine-field-smjestaj-ocjena-value-desc a {
+    background-color: darkcyan; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_smjestaj\.scss}line{font-family:\0000376}}
+  .view-smjestaj .form-item-sort-bef-combine #edit-sort-bef-combine-field-smjestaj-zvjezdice-value-asc a {
+    background-color: crimson; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_smjestaj\.scss}line{font-family:\0000377}}
+  .view-smjestaj .form-item-sort-bef-combine #edit-sort-bef-combine-field-smjestaj-zvjezdice-value-desc a {
+    background-color: crimson; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_smjestaj\.scss}line{font-family:\0000379}}
 .view-smjestaj .views-field-title {
   clear: both;
   float: left;
   position: relative;
-  margin-right: 2em; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_smjestaj\.scss}line{font-family:\0000375}}
+  margin-right: 2em;
+  padding: 0.4em 1em;
+  margin-top: -2.5em;
+  background-color: #254a93;
+  border-radius: 25px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_smjestaj\.scss}line{font-family:\0000388}}
   .view-smjestaj .views-field-title a {
+    color: white;
     text-decoration: none;
     font-size: 1.2em;
     line-height: 100%; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_smjestaj\.scss}line{font-family:\0000381}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_smjestaj\.scss}line{font-family:\0000395}}
 .view-smjestaj .views-field-field-smjestaj-zvjezdice {
-  display: inline;
+  clear: both;
   float: left;
   margin-right: 1.5em; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_smjestaj\.scss}line{font-family:\0000386}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_smjestaj\.scss}line{font-family:\00003100}}
 .view-smjestaj .views-field-field-smjestaj-ocjena {
   display: inline;
   float: left;
   margin-right: 2em;
   /*        margin-left: 235px;*/ }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_smjestaj\.scss}line{font-family:\0000392}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_smjestaj\.scss}line{font-family:\00003106}}
 .view-smjestaj .views-field-field-smjestaj-adresa-thoroughfare {
   display: inline; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_smjestaj\.scss}line{font-family:\0000395}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_smjestaj\.scss}line{font-family:\00003109}}
 .view-smjestaj .views-field-field-smjestaj-slika {
   position: absolute;
   height: 125px;
-  border: 2px solid #386db9;
-  border-radius: 5px;
   margin-top: 10px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_smjestaj\.scss}line{font-family:\00003102}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_smjestaj\.scss}line{font-family:\00003114}}
 .view-smjestaj .views-field-field-smjestaj-geo {
-  float: left;
+  display: inline;
   width: 225px;
-  border: 2px solid #0099ff;
-  margin-top: 147px;
-  border-radius: 5px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_smjestaj\.scss}line{font-family:\00003107}}
+  margin-top: 147px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_smjestaj\.scss}line{font-family:\00003118}}
   .view-smjestaj .views-field-field-smjestaj-geo .leaflet-control {
     font-size: 0.6em; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_smjestaj\.scss}line{font-family:\00003110}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_smjestaj\.scss}line{font-family:\00003121}}
   .view-smjestaj .views-field-field-smjestaj-geo .leaflet-marker-icon {
     width: 50px;
     height: auto; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_smjestaj\.scss}line{font-family:\00003116}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_smjestaj\.scss}line{font-family:\00003126}}
 .view-smjestaj .views-field-field-smjestaj-opis {
   color: black;
   position: relative;
-  padding: 1em;
-  border: solid 2px #c057c6;
-  border-radius: 10px;
+  padding: 0.8em 1em 1em 1.2em;
   margin-top: 10px;
   margin-left: 240px;
   line-height: 150%; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_smjestaj\.scss}line{font-family:\00003126}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_smjestaj\.scss}line{font-family:\00003134}}
   .view-smjestaj .views-field-field-smjestaj-opis .daj_vise a {
     font-size: 1em; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_smjestaj\.scss}line{font-family:\00003131}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_smjestaj\.scss}line{font-family:\00003139}}
 .view-smjestaj .views-field-nothing {
   position: relative;
   margin-left: 250px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_smjestaj\.scss}line{font-family:\00003134}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/drupal\/sites\/all\/themes\/zagreb\/sass\/components\/views\/_smjestaj\.scss}line{font-family:\00003142}}
   .view-smjestaj .views-field-nothing a {
     font-size: 1em;
     text-transform: uppercase;

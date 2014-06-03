@@ -28,8 +28,9 @@
     font-weight: 300;
     line-height: 180%;
     word-wrap:break-word;
-    border-bottom: black solid 1px;
-    margin: 0.5em 0;
+    border: solid 5px $muzeji;
+    border-radius: 25px;
+    margin: 2em 0;
 }
 
 .view-smjestaj a {
@@ -48,38 +49,51 @@
         font-family: 'Open Sans';
         font-weight: 300;
         font-size: 1em;
+        margin: 1em;
         color: $ducan;
-        border-bottom: 1px solid $ducan;
     }
     .form-item-sort-bef-combine {
+        width: 1000px;
         font-family: 'Open Sans';
         font-weight: 300;
-        font-size: 0.5em;
-        float: left;
-        color: $ducan;
-        padding: 0.5em;
-        margin: 1em;
-        .form-type-bef-link a {
-            color: white;
-            background-color: $ducan;
-            padding: 0.5em 0.2em;
-            margin: 0.5em 0.2em;
-            text-decoration: none;
+        font-size: 0.6em;
+        padding-bottom: 7em;
+        label {display:none};
+        .form-type-bef-link {
+            float: left;
+            a {
+                color: white;
+                background-color: $ducan;
+                border-radius: 25px;
+                padding: 0.5em 1em;
+                margin: 1em 0.3em;
+                text-decoration: none;
+                text-transform: uppercase;
+            }
         }
+        #edit-sort-bef-combine-field-smjestaj-ocjena-value-asc a {background-color: $muzeji};
+        #edit-sort-bef-combine-field-smjestaj-ocjena-value-desc a {background-color: $muzeji};
+        #edit-sort-bef-combine-field-smjestaj-zvjezdice-value-asc a {background-color: $kazalista};
+        #edit-sort-bef-combine-field-smjestaj-zvjezdice-value-desc a {background-color: $kazalista};
     }        
     .views-field-title {
         clear: both;
         float: left;
         position: relative;
         margin-right: 2em;
+        padding: 0.4em 1em;
+        margin-top: -2.5em;
+        background-color: $ducan;
+        border-radius: 25px;
         a {
+            color: white;
             text-decoration: none;
             font-size: 1.2em;
             line-height: 100%;
         }
     }
     .views-field-field-smjestaj-zvjezdice {
-        display: inline;
+        clear: both;
         float: left;
         margin-right: 1.5em;
     }
@@ -95,14 +109,11 @@
     .views-field-field-smjestaj-slika {
         position: absolute;
         height: 125px;
-        border: 2px solid $sto-raditi;
-        border-radius: 5px;
         margin-top: 10px;
     }
     .views-field-field-smjestaj-geo {
-        float: left;
+        display: inline;
         width: 225px;
-        border: 2px solid $sto-raditi-hover;
         margin-top: 147px;
         .leaflet-control {
             font-size: 0.6em;
@@ -111,14 +122,11 @@
             width: 50px;
             height: auto;
         }
-        border-radius: 5px;
     }
     .views-field-field-smjestaj-opis {
         color: black;
         position: relative;
-        padding: 1em;
-        border: solid 2px $gdje-spavati-hover;
-        border-radius: 10px;
+        padding: 0.8em 1em 1em 1.2em;
         margin-top: 10px;
         margin-left: 240px;
         line-height: 150%;
